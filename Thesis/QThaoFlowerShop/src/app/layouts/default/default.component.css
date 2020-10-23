@@ -1,0 +1,29 @@
+:host{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.content{
+    padding: 20px;
+}
+.header{
+    padding: 20px;
+    background-color: #14274e;
+
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+a:hover, a:active{
+    color: #ee6f57;
+}
+
+.footer{
+    padding: 20px;
+    background-color: #14274e;
+}
+.sidebar{
+    padding: 20px;
+    background-color: #394867;
+}

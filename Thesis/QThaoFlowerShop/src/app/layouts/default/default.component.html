@@ -1,0 +1,21 @@
+<app-header></app-header>
+<!-- <header flexLayout="column" class="header" fxLayoutAlign="space-between center">
+    <div>logo</div>
+    <div>
+        <a routerLink="/" mat-button>Home</a>
+        <a routerLink="/register">Register</a>
+        <a routerLink="/login">Log in</a>
+    </div>
+</header> -->
+<div flexLayout="row" fxFlex>
+    <div fxFlex="20" fxFlex class="sidebar">
+        Sidebar
+    </div>
+    <div fxFlex="80" class="content">
+        <router-outlet></router-outlet>
+    </div>
+</div>
+<footer flexLayout="column" class="footer">
+<p>footer here</p>
+</footer>
+<app-footer></app-footer>
