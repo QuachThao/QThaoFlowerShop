@@ -1,0 +1,24 @@
+<div class="title">
+  <img src="/assets/image/birthday/1.png" alt="" />
+</div>
+<div>
+  <div>
+    <ng-container *ngFor="let entry of data">
+      <div>
+        <img [src]="entry.url" />
+        <span>Name: {{ entry.name }}</span>
+        <button>Buy now</button>
+      </div>
+    </ng-container>
+  </div>
+
+  <mat-paginator
+    class="paginator"
+    [length]="data2.length"
+    [pageSize]="size"
+    [pageIndex]="page"
+    (page)="getData($event)"
+  >
+  </mat-paginator>
+</div>
+

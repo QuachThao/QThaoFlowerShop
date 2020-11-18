@@ -1,0 +1,54 @@
+footer{
+    padding: 20px 0;
+    background-color: #14274e;
+    color: white;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    position: relative;
+}
+.text-center{
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bolder;
+    color: #ee6f57;
+}
+.copyright{
+    text-align: center;
+    font-size: 0.8rem;
+}
+.container{
+    display: inline-table;
+}
+table{
+    float: left;
+}
+table td{
+    padding: 5px 5px;
+    font-size: 17px;
+}
+.store-name{
+    margin-left: 0;
+    margin-right: 70px;
+}
+.hr-store-name{
+    height: 1.5px;
+    width: 90px;
+    left: 0;
+    background-color: #ee6f57;
+    border: #14274e;
+}
+.products{
+    margin-left: 0 auto;
+}
+.contact{
+    margin-left: 70px;
+}
+.contact td{
+    text-align: left;
+    padding-left: 100px;
+}
+.icon{
+    padding-right: 10px;
+}

@@ -1,0 +1,140 @@
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.title{
+  font-size: 18px;
+  font-weight: 500;
+}
+.right {
+  margin: 0;
+  padding: 40px 40px;
+  background-color: #bdced8;
+}
+
+.left img {
+  margin-left: 20px;
+  margin-right: 10px;
+  width: 650px;
+}
+
+.right table {
+  margin-top: 0;
+  padding-top: 0;
+  padding: 5px 5px;
+}
+.right table td {
+  padding: 5px;
+}
+.right .hr {
+  margin: 0;
+  padding: 0;
+  height: 1px;
+  width: 90%;
+  background-color: #9ba4b4;
+}
+.right table td button {
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 10px;
+}
+.quantity input{
+  padding: 0;
+  width: 70px;
+  text-align: center;
+  margin: 0 5px;
+}
+.btn-number{
+  padding: 0;
+  border: none;
+  border-radius: 10px;
+}
+.icon-quantity{
+  padding: 0;
+  font-size: 18px;
+  text-align: center;
+  color: white;
+  background-color: #ee6f57;
+}
+.btn-add-product{
+  border-color:  #ee6f57;
+  color: black;
+  height: 45px;
+}
+.btn-add-product:hover{
+  background-color:  #ee6f57;
+}
+.btn-add-product a{
+  text-decoration: none;
+  color: black;
+}
+.ul-1 {
+  margin-bottom: 0;
+}
+.ul-1 li {
+  list-style-type: square;
+}
+.ul-2 {
+  margin-top: 5px;
+  margin-left: 20px;
+}
+
+
+.slidershow {
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+}
+.navigation {
+  margin-top: calc(-5px - 5px * 2 - 10px);
+  display: flex;
+  justify-content: center;
+}
+.bar {
+  width: 30px;
+  height: 3px;
+  border: 1px solid #123;
+  margin: 5px;
+  cursor: pointer;
+  transition: 0.4s;
+}
+.bar:hover {
+  background: #ee6f57;
+}
+input[name="r"] {
+  display: none;
+}
+.slides {
+  width: 90px;
+  display: flex;
+}
+.slide {
+  transition: 0.6s;
+}
+.slide img {
+  width: 90px;
+  height: 90px;
+
+}
+#r1:checked ~ .s1 {
+  margin-left: 0;
+}
+#r2:checked ~ .s1 {
+  margin-left: -10%;
+}
+#r3:checked ~ .s1 {
+  margin-left: -20%;
+}
+#r4:checked ~ .s1 {
+  margin-left: -30%;
+}
+#r5:checked ~ .s1 {
+  margin-left: -40%;
+}
+#r6:checked ~ .s1 {
+  margin-left: -50%;
+}
+#r7:checked ~ .s1 {
+  margin-left: -60%;
+}

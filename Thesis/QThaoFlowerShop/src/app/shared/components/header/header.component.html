@@ -1,8 +1,17 @@
-<header>
-    <div>logo</div>
-    <div>
-        <a routerLink="/">Home</a>
-        <a routerLink="/register">Register</a>
-        <a routerLink="/login">Log in</a>
+<!-- <input type="checkbox" id="check"> -->
+<header fxLayoutAlign="space-between center">
+    <div class="logo">
+        <table><tr><td><a routerLink="/"><img src="/assets/image/majorlogo.png" alt="logo" width="90" ></a></td>
+            <td class="name">QThao's <br> Flower Shop </td></tr>
+        </table>
+    </div>
+    <!-- <label for="check">
+        <mat-icon id="sidebar-btn">dehaze</mat-icon>
+    </label> -->
+    <div class="link" fxLayout="row" fxLayoutGap="20px">
+        <a routerLink="/" mat-button>Home</a>
+        <a routerLink="/footer-link">Contact us</a>
+        <a routerLink="/login">Register & Log in</a>
+        <a routerLink="/">Log out</a>
     </div>
 </header>

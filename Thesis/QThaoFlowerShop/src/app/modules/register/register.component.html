@@ -1,1 +1,79 @@
-<p>register works!</p>
+    <div class="register-form">
+        <h1 class="name">Register</h1>
+        <form [formGroup]="registerForm" class="content">
+            <label>Username</label>
+            <input name="userName" id="userName" class="text" 
+                        matInput
+                        formControlName="userName"
+                        [ngModel]="user.userName"
+                        placeholder="Enter your Username">
+            <label>Fullname</label>
+            <input name="fullName" id="fullName" class="text" 
+                        matInput
+                        formControlName="fullName"
+                        [ngModel]="user.fullName"
+                        placeholder="Enter your Fullname" />
+            <label>Email</label>
+            <input matInput placeholder="abc@example.com" [formControl]="email" required class="text">
+            <label>Password</label>
+            <input name="passWord" id="passWord" type="password" class="text" 
+                               matInput
+                               formControlName="passWord"
+                               [ngModel]="user.passWord"
+                               placeholder="Enter your Password" />
+            <label>Confirm password</label>
+            <input name="confirm_passWord" id="comfirm_passWord" type="password" class="text" 
+                               matInput
+                               formControlName="passWord"
+                               [ngModel]="user.passWord"
+                               placeholder="Enter your Password" />
+            
+            <label>Phonenumber</label>
+            <input name="phoneNumber" id="phoneNumber" class="text"
+                               matInput
+                               formControlName="phoneNumber"
+                               [ngModel]="user.phoneNumber"
+                               placeholder="Enter your Phonenumber" />
+            <label>Gender</label>
+            <select matNativeControl required class="text">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+            <label>Address</label>
+            <textarea   name="address" id="address"
+                        matInput
+                        formControlName="address"
+                        [ngModel]="user.address"
+                        placeholder="Enter your address">
+            </textarea>
+            
+                <div><button mat-button type="submit" class="btn">Register</button></div>
+                <div><button mat-button type="return" class="btn"><a routerLink="/">Back</a></button></div>
+            
+        </form>
+    </div>
+
+    
+    <!-- 
+                        
+
+                        
+                        
+
+                        
+                        
+                        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+
+                        
+                        
+
+                        
+                        
+
+                        
+                        
+
+                        
+                        
+
+                         -->

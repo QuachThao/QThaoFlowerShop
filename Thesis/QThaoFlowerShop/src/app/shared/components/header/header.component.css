@@ -1,0 +1,40 @@
+header{
+    padding: 10px ;
+    background-color: #14274e;
+    height: 80px;
+    width: 100%;
+
+}
+.logo {
+    margin: 0;
+    padding: 0;
+}
+/* label #sidebar-btn{
+    z-index: 1;
+    color: white;
+    cursor: pointer;
+    left: 230px;
+    margin: 5px 0;
+    font-size: 30px;
+    transition: 0.5s;
+    transition-property: color;
+}
+label #sidebar-btn:hover{
+    color: #ee6f57;
+} */
+.name{
+    font-size: 1rem;
+    color: #ee6f57;
+    font-weight: bolder;
+}
+.menu-icon{
+    color: tomato;
+}
+a{
+    text-decoration: none;
+    color: white;
+    font-size: 1.2rem;
+}
+a:hover, a:active{
+    color: #ee6f57;
+}

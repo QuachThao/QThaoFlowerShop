@@ -1,0 +1,88 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: #9ba4b4;
+}
+ .register-form{
+    width: 500px;
+    padding: 20px;
+    background:url("https://i.pinimg.com/originals/b3/cf/61/b3cf610617d567976269791521446869.jpg");
+    background-size: cover;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    height: 90%;
+
+}
+.name{
+    margin-top: 5px;
+    color: #ee6f57;
+    text-align: center;
+}
+.register-form input, select, textarea{
+    display: block;
+    width: 300px;
+    padding: 0 5px;
+    height: 44px;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    float: right;
+    margin-right: 10px;
+}
+.register-form label{
+    text-align: right;
+    clear: both;
+    float:left;
+    font-size: 1.1rem;
+    margin-left:40px;
+   margin-top: 15px;
+   color: #ee6f57;
+}
+.register-form label option{
+    font-size: 1.1rem;
+}
+.text{
+    margin: 10px 0;
+    background: rgba(255, 255, 255, .5);
+    border-radius: 7px;
+}
+.btn a{
+    text-decoration: none;
+    color: black;
+}
+.btn{
+    background: #ee6f57;
+    width: 150px;
+    height: 30px;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 170px;
+}
+.btn:hover{
+    transform: scale(0.96);
+}
+/* 
+.return-btn{
+    text-decoration: none;
+    background: #ee6f57;
+    width: 140px;
+    height: 40px;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+.return-btn a{
+    text-decoration: none;
+    color: black;
+}
+.return-btn:hover{
+    transform: scale(0.96);
+} */

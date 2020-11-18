@@ -1,1 +1,131 @@
-<p>sidebar works!</p>
+<div class="page-container">
+    <div class="sidebar">
+        <div class="logo">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQcbE6u36DvNqhRgUJtDR3MQDBcPkC3n83uXw&usqp=CAU" alt="">
+             <!-- get from data  -->
+            <h3>name</h3>
+        </div>
+        <div class="hr"></div>
+        <div class="expansion">
+            <mat-accordion class="accordion">
+                <div class="header"><span class="card"><mat-icon class="icon">local_grocery_store</mat-icon>Card</span></div>
+                <mat-expansion-panel (opened)="panelOpenState = true"
+                (closed)="panelOpenState = false" class="panel">
+                <mat-expansion-panel-header class="header">
+                    <mat-panel-title class="title">
+                        <span><mat-icon class="icon">palette</mat-icon>Theme</span>
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                    <div class="link"><a routerLink="/birthday">Birthday</a></div>
+                    <div class="link"><a routerLink="/congratulation">Congratulation</a></div>
+                    <div class="link"><a routerLink="/opening">Opening</a></div>
+                    <div class="link"><a routerLink="/romantic">Romantic</a></div>
+                    <div class="link"><a routerLink="/sorry">Sorry</a></div>
+                    <div class="link"><a routerLink="/wedding">Wedding</a></div>
+                </mat-expansion-panel>
+
+                <mat-expansion-panel (opened)="panelOpenState = true"
+                (closed)="panelOpenState = false" class="panel">
+                    <mat-expansion-panel-header class="header">
+                        <mat-panel-title class="title">
+                           <span><mat-icon class="icon">local_florist</mat-icon> Type of flower</span>
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div class="link"><a routerLink="/baby_flower">Baby flower</a></div>
+                    <div class="link"><a routerLink="/carnation">Carnation</a></div>
+                    <div class="link"><a routerLink="/chrysanthemum_flowers">Chrysanthemum flower</a></div>
+                    <div class="link"><a routerLink="/gerbera">Gerbera</a></div>
+                    <div class="link"><a routerLink="/hydrangeas">Hydrangeas</a></div>
+                    <div class="link"><a routerLink="/lilies">Lilies</a></div>
+                    <div class="link"><a routerLink="/money_flower">Money flower</a></div>
+                    <div class="link"><a routerLink="/orchid">Orchid</a></div>
+                    <div class="link"><a routerLink="/rose">Rose</a></div>
+                    <div class="link"><a routerLink="/sun_flower">Sun flower</a></div>
+                </mat-expansion-panel>
+
+                <mat-expansion-panel (opened)="panelOpenState = true"
+                (closed)="panelOpenState = false" class="panel">
+                    <mat-expansion-panel-header class="header">
+                        <mat-panel-title class="title">
+                           <span><mat-icon class="icon">queue</mat-icon>Other products</span>
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div class="link"><a routerLink="/card">Card</a></div>
+                    <div class="link"><a routerLink="/teddy_bear">Teddy bear</a></div>
+                    <div class="link"><a routerLink="/candle">Candle</a></div>
+                    <div class="link"><a routerLink="/chocolate">Chocolate</a></div>
+                    <div class="link"><a routerLink="/flower_vase">Flower vase</a></div>
+                </mat-expansion-panel>
+            </mat-accordion>
+        </div>
+
+
+<!-- div -->
+
+        <!--<div class="list-items">
+            <div class="list-item">
+                <span><mat-icon class="icon"> local_grocery_store</mat-icon>Card</span>
+            </div>
+            <div class="list-item">
+               <span href="#boxnoidung" aria-expanded="false" data-toggle="collapse"><mat-icon class="icon">palette</mat-icon>Theme</span>
+               <span><mat-icon class="arrow_drop_down">arrow_drop_down</mat-icon></span>
+               <div class="dropdown-content collapse" id="boxnoidung">
+                <a routerLink="/birthday">birthday</a>
+                <a routerLink="/congratulation">Congratulation</a>
+                <a routerLink="/opening">Opening</a>
+                <a routerLink="/romantic">Romantic</a>
+                <a routerLink="/sorry">Sorry</a>
+                <a routerLink="/wedding">Wedding</a>
+                </div>
+            </div>
+            <div class="list-item">
+                <span><mat-icon class="icon">local_florist</mat-icon> Type of flower</span>
+                <span><mat-icon class="arrow_drop_down">arrow_drop_down</mat-icon></span>
+            </div>
+            <div class="list-item">
+                <span><mat-icon class="icon">queue</mat-icon> Other products</span>
+                <span><mat-icon class="arrow_drop_down">arrow_drop_down</mat-icon></span>
+            </div>
+        </div> -->
+
+
+
+<!-- menu -->
+
+        <!-- <div class="menu">
+            <ul>
+                <li><a><mat-icon> local_grocery_store</mat-icon>Card</a></li>
+                <li>
+                    <a class="btn btn-link" href="#" data-toggle="collapse" data-target="#target1" aria-expanded="false"><mat-icon>palette</mat-icon>Theme
+                        <span><mat-icon class="arrow_drop_down">arrow_drop_down</mat-icon></span>
+                    </a>
+                    <ul id="target1" class="collapse">
+                        <li><a routerLink="/birthday">birthday</a></li>
+                        <li><a routerLink="/congratulation">Congratulation</a></li>
+                        <li><a routerLink="/opening">Opening</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="type-btn"><mat-icon>local_florist</mat-icon>Type of flower
+                        <span><mat-icon class="arrow_drop_down">arrow_drop_down</mat-icon></span>
+                    </a>
+                    <ul class="type-show">
+                        <li><a routerLink="/romantic">Romantic</a></li>
+                        <li><a routerLink="/sorry">Sorry</a></li>
+                        <li><a routerLink="/wedding">Wedding</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="other-btn"><mat-icon>queue</mat-icon> Other products
+                        <span><mat-icon class="arrow_drop_down">arrow_drop_down</mat-icon></span>
+                    </a>
+                    <ul>
+                        <li><a routerLink="/romantic">Romantic</a></li>
+                        <li><a routerLink="/sorry">Sorry</a></li>
+                        <li><a routerLink="/wedding">Wedding</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div> -->
+    </div>
+</div> 
