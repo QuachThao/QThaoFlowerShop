@@ -4,11 +4,16 @@
     margin-left: 20px;
     margin-bottom: 10px;
     padding-top: 10px;
-    font-family: 'Grandstander', cursive;
-    font-family: 'Ubuntu', sans-serif;
+    font-weight: 500;
 }
+.ng-autocomplete{
+    margin-top: 20px;
+    margin-left: 200px;
+}
+
 .container1, .container2, .container3, .container4, .container5, .container6{
     margin-top: 30px;
+    margin-left: 0;
     background: #f1f6f9;
 }
 .grid-list{
@@ -41,6 +46,7 @@
     height: 1px;
     background-color: #9ba4b4;
 }
+
 .detail-content{
    padding-left: 10px;
 }
@@ -76,3 +82,39 @@
     width: 100%;
     background-color: #ee6f57;
 }
+.search {
+    max-width: 50%;
+    margin-left: 260px;
+    display: grid;
+    line-height: 35px;
+    grid-template-columns: 1fr 0.2fr 0.2fr 0.2fr;
+    border: 1px solid #14274e;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  .search mat-icon{
+      font-size: 30px;
+  }
+  .search input{
+      border: none;
+      padding-left: 20px;
+      line-height: 30px;
+  }
+  .search .grid2{
+    border-right: 1.5px solid#14274e;
+    border-left: 1.5px solid #14274e;
+  }
+  .search .grid3{
+    border-right: 1.5px solid#14274e;
+  }
+  .search .grid2, .grid3, .grid4{
+      text-align: center;
+      color: #ee6f57;
+      /* width: 46px; */
+  }
+  .search .grid2:hover, 
+  .search .grid3:hover,
+  .search .grid4:hover{
+      background: #ee6f57;
+      color: #000;
+  }

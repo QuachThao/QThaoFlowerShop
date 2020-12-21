@@ -1,0 +1,14 @@
+<div class="popup-center">
+    <div class="icon">
+        <mat-icon>sentiment_satisfied_alt</mat-icon>
+    </div>
+    <div class="title">
+        <h3 mat-dialog-title>{{ title }}</h3>
+        <h4>Thanh toán thành công!</h4>
+    </div>
+    <h5>Bạn có muốn in hóa đơn?</h5>
+    <div class="btn">
+        <div class="left" (click)="openPDF()">In hóa đơn</div>
+       <div class="right"  (click)="onDismiss()">Cancel</div>
+    </div>
+</div>

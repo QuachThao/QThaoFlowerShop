@@ -1,3 +1,4 @@
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -7,14 +8,19 @@ import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
-import { BirthdayComponent } from 'src/app/modules/birthday/birthday.component';
-import {MatPaginatorModule} from '@angular/material/paginator';
+import { SubCategoryComponent } from 'src/app/modules/sub-category/sub-category.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {AutocompleteLibModule} from 'angular-ng-autocomplete';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+ 
+
 
 @NgModule({
   declarations: [
     DefaultComponent,
     HomeComponent,
-    BirthdayComponent
+    SubCategoryComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +29,14 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     SharedModule,
     MatGridListModule,
     MatIconModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatProgressSpinnerModule,
+    AutocompleteLibModule,
+    Ng2SearchPipeModule,
+    FormsModule,
+    ReactiveFormsModule
+
+    
   ]
 })
 export class DefaultModule { }

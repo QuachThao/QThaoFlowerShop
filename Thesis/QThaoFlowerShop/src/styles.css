@@ -4,3 +4,46 @@ body, html{
     margin: 0;
     height: 100%;
 }
+
+mat-dialog-container.mat-dialog-container {
+    position: absolute;
+    top: 15%;
+    left: 40%;
+    padding: 0;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+}
+.popover{
+    background: #fff;
+    border: 0.5px solid rgb(241, 197, 189);
+}
+.popover h3{
+    margin: 0;
+    color: #000;
+    font-size: 18px;
+    text-align: center;
+    background: rgb(241, 197, 189);
+    border-bottom: 1px solid  #ee7866;
+}
+.popover p{
+    font-size: 16px;
+}
+.popover .confirm-btns{
+    text-align: center;
+    border-top: 0.5px solid rgb(241, 197, 189);
+}
+.confirm-btn-container{
+    margin: 0;
+    margin-right: 0;
+    border-right: 1px solid rgb(241, 197, 189);
+}
+.confirm-btn-container button{
+    border: none;
+    font-size: 15px;
+    background: #fff;
+    line-height: 20px;
+}
+.confirm-btn-container button:hover{
+    color: #ee7866;
+}

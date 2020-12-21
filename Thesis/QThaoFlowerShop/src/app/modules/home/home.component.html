@@ -1,373 +1,119 @@
 <router-outlet>
-    <!-- <app-carousel></app-carousel> -->
-
+    <app-carousel></app-carousel>
+    <!-- search -->
+    <!-- <div class="search-hero">
+        <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Start searching for a hero by id or name or country">
+      </div>
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>Id</th>
+          <th>Hero Name</th>
+          <th>Country</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let hero of heroes | filter:searchText">
+          <td>{{hero.id}}</td>
+          <td>{{hero.name}}</td>
+          <td>{{hero.country}}</td>
+        </tr>
+        </tbody>
+      </table> -->
+    <!-- autocomplete -->
+    <!-- <div class="ng-autocomplete">
+        <ng-autocomplete 
+          [data]="data"
+          [searchKeyword]="keyword"
+          (selected)='selectEvent($event)'
+          (inputChanged)='onChangeSearch($event)'
+          (inputFocused)='onFocused($event)'
+          [itemTemplate]="itemTemplate"
+          [notFoundTemplate]="notFoundTemplate">
+        </ng-autocomplete>
+         <button><mat-icon>settings_voice</mat-icon></button>
+        <ng-template #itemTemplate let-item>
+        <a [innerHTML]="item.displayName"></a>
+        </ng-template>
+         
+        <ng-template #notFoundTemplate let-notFound>
+        <div [innerHTML]="notFound"></div>
+        </ng-template>
+        </div> -->
+        <div class="search">
+            <div class="grid1">
+                <input nz-input placeholder="Nhập thông tin bạn cần tìm." aria-label="Number" matInput
+                [formControl]="myControl" [(ngModel)]="searchText">
+            </div>
+            <div class="grid2">
+                <span (click)="search()"><mat-icon>search</mat-icon></span>
+            </div> 
+            <div class="grid3">
+                <span (click)="searchVoice()"><mat-icon class="search-voice" >mic_none</mat-icon></span>
+            </div>
+            <div class="grid4">
+               <span (click)="cancelSearch()"><mat-icon>search_off</mat-icon></span> 
+            </div>
+        </div>
     <!-- content -->
-    <!-- bestseller -->
+    <!-- result search -->
     <div class="container1">
-        <div class="title"><span>Bestseller</span></div>
-        <div class="hr"></div>
-        <mat-grid-list cols="4" class="grid-list">
-            <mat-grid-tile>
+        <!-- <div class="title"><span>Bán chạy nhất</span></div> -->
+        <!-- <div class="hr"></div> -->
+        <mat-grid-list cols="4" class="grid-list" *ngIf="resultSearch?.length">
+            <mat-grid-tile *ngFor="let product of resultSearch">
                 <div class="cols1">
                     <div class="cols1-inner">
-                        <a routerLink="/detailProduct"><img src="/assets/image/bestseller/1.jpg" alt=""></a>
+                        <a routerLink="/detailProduct/{{ product.id }}">
+                            <img [src]="product.url" alt="">
+                        </a>
                     </div>
                     <div class="hr-inner"></div>
                     <div class="detail-content">
-                        <!-- select from data -->
-                        <p>Pink Moon Bouquet</p>
-                        <p>Price: 300k</p>
-                        <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                    </div>
-                </div>
-            </mat-grid-tile>
-            <mat-grid-tile>
-                <div class="cols1">
-                    <div class="cols1-inner">
-                        <a routerLink="/detailProduct"><img src="/assets/image/bestseller/2.jpg" alt=""></a>
-                    </div>
-                    <div class="hr-inner"></div>
-                    <div class="detail-content">
-                        <!-- select from data -->
-                        <p>Aurora Light Bouquet</p>
-                        <p>Price: 300k</p>
-                        <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                    </div>
-                </div>
-            </mat-grid-tile>
-            <mat-grid-tile>
-                <div class="cols1">
-                    <div class="cols1-inner">
-                        <a routerLink="/detailProduct"><img src="/assets/image/bestseller/3.jpg" alt=""></a>
-                    </div>
-                    <div class="hr-inner"></div>
-                    <div class="detail-content">
-                        <!-- select from data -->
-                        <p>Mindful Soul Bouquet</p>
-                        <p>Price: 300k</p>
-                        <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                    </div>
-                </div>
-            </mat-grid-tile>
-            <mat-grid-tile>
-                <div class="cols1">
-                    <div class="cols1-inner">
-                        <a routerLink="/detailProduct"><img src="/assets/image/bestseller/4.jpg" alt=""></a>
-                    </div>
-                    <div class="hr-inner"></div>
-                    <div class="detail-content">
-                        <!-- select from data -->
-                        <p>Green Garden Bouquet</p>
-                        <p>Price: 300k</p>
-                        <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                    </div>
-                </div>
-            </mat-grid-tile>
-
-        </mat-grid-list>
-        <mat-grid-list cols="4" class="grid-list">
-            <mat-grid-tile>
-                <div class="cols1">
-                    <div class="cols1-inner">
-                        <a routerLink="/detailProduct"><img src="/assets/image/bestseller/5.jpg" alt=""></a>
-                    </div>
-                    <div class="hr-inner"></div>
-                    <div class="detail-content">
-                        <!-- select from data -->
-                        <p>Shining Ruby Bouquet</p>
-                        <p>Price: 300k</p>
-                        <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                    </div>
-                </div>
-            </mat-grid-tile>
-            <mat-grid-tile>
-                <div class="cols1">
-                    <div class="cols1-inner">
-                        <a routerLink="/detailProduct"><img src="/assets/image/bestseller/6.jpg" alt=""></a>
-                    </div>
-                    <div class="hr-inner"></div>
-                    <div class="detail-content">
-                        <!-- select from data -->
-                        <p>Ecuador Red Romance Bouquet</p>
-                        <p>Price: 300k</p>
-                        <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                    </div>
-                </div>
-            </mat-grid-tile>
-            <mat-grid-tile>
-                <div class="cols1">
-                    <div class="cols1-inner">
-                        <a routerLink="/detailProduct"><img src="/assets/image/bestseller/7.jpg" alt=""></a>
-                    </div>
-                    <div class="hr-inner"></div>
-                    <div class="detail-content">
-                        <!-- select from data -->
-                        <p>Fly Me To The Moon Bouquet</p>
-                        <p>Price: 300k</p>
-                        <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                    </div>
-                </div>
-            </mat-grid-tile>
-            <mat-grid-tile>
-                <div class="cols1">
-                    <div class="cols1-inner">
-                        <a routerLink="/detailProduct"><img src="/assets/image/bestseller/8.jpg" alt=""></a>
-                    </div>
-                    <div class="hr-inner"></div>
-                    <div class="detail-content">
-                        <!-- select from data -->
-                        <p> Je T'aime Bouquet</p>
-                        <p>Price: 300k</p>
-                        <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                    </div>
-                </div>
-            </mat-grid-tile>
-        </mat-grid-list>
-
-        <mat-grid-list cols="4" class="grid-list">
-            <mat-grid-tile>
-                <div class="cols1">
-                    <div class="cols1-inner">
-                        <a routerLink="/detailProduct"><img src="/assets/image/bestseller/9.jpg" alt=""></a>
-                    </div>
-                    <div class="hr-inner"></div>
-                    <div class="detail-content">
-                        <!-- select from data -->
-                        <p> Fabulously Red Bouquet</p>
-                        <p>Price: 300k</p>
-                        <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                    </div>
-                </div>
-            </mat-grid-tile>
-            <mat-grid-tile>
-                <div class="cols1">
-                    <div class="cols1-inner">
-                        <a routerLink="/detailProduct"><img src="/assets/image/bestseller/10.jpg" alt=""></a>
-                    </div>
-                    <div class="hr-inner"></div>
-                    <div class="detail-content">
-                        <!-- select from data -->
-                        <p>Doors To Heaven Bouquet</p>
-                        <p>Price: 300k</p>
-                        <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                    </div>
-                </div>
-            </mat-grid-tile>
-            <mat-grid-tile>
-                <div class="cols1">
-                    <div class="cols1-inner">
-                        <a routerLink="/detailProduct"><img src="/assets/image/bestseller/11.jpg" alt=""></a>
-                    </div>
-                    <div class="hr-inner"></div>
-                    <div class="detail-content">
-                        <!-- select from data -->
-                        <p>Gorgeous You Bouquet</p>
-                        <p>Price: 300k</p>
-                        <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                    </div>
-                </div>
-            </mat-grid-tile>
-            <mat-grid-tile>
-                <div class="cols1">
-                    <div class="cols1-inner">
-                        <a routerLink="/detailProduct"><img src="/assets/image/bestseller/12.jpg" alt=""></a>
-                    </div>
-                    <div class="hr-inner"></div>
-                    <div class="detail-content">
-                        <!-- select from data -->
-                        <p>La Vie En Rose Bouquet</p>
-                        <p>Price: 300k</p>
-                        <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
+                        <p>{{ product.name }}</p>
+                        <p>Price: {{ product.price| currency:"VND":"symbol"}}</p>
                     </div>
                 </div>
             </mat-grid-tile>
         </mat-grid-list>
     </div>
-<!-- bouquet of love -->
-    <div class="container2">
-        <div class="title"><span>Bouquet of love</span></div>
+    <!-- bestseller -->
+    <div class="container1">
+        <div class="title"><span>Bán chạy nhất</span></div>
         <div class="hr"></div>
         <mat-grid-list cols="4" class="grid-list">
-            <mat-grid-tile>
-            <div class="cols1">
-                <div class="cols1-inner">
-                    <a routerLink="/detailProduct"><img src="/assets/image/bouquetOfLove/1.jpg" alt=""></a>
-                </div>
-                <div class="hr-inner"></div>
-                <div class="detail-content">
-                    <!-- select from data -->
-                    <p>Be My Fiancée Bouquet</p>
-                    <p>Price: 300k</p>
-                    <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                </div>
-            </div>
-        </mat-grid-tile>
-        
-        <mat-grid-tile>
-            <div class="cols1">
-                <div class="cols1-inner">
-                    <a routerLink="/detailProduct"><img src="/assets/image/bouquetOfLove/2.jpg" alt=""></a>
-                </div>
-                <div class="hr-inner"></div>
-                <div class="detail-content">
-                    <!-- select from data -->
-                    <p>Passionate Love Bouquet</p>
-                    <p>Price: 300k</p>
-                    <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                </div>
-            </div>
-        </mat-grid-tile>
-
-        <mat-grid-tile>
-            <div class="cols1">
-                <div class="cols1-inner">
-                    <a routerLink="/detailProduct"><img src="/assets/image/bouquetOfLove/3.jpg" alt=""></a>
-                </div>
-                <div class="hr-inner"></div>
-                <div class="detail-content">
-                    <!-- select from data -->
-                    <p>Moth orchid Bouquet</p>
-                    <p>Price: 300k</p>
-                    <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                </div>
-            </div>
-        </mat-grid-tile>
-
-        <mat-grid-tile>
-            <div class="cols1">
-                <div class="cols1-inner">
-                    <a routerLink="/detailProduct"><img src="/assets/image/bouquetOfLove/4.jpg" alt=""></a>
-                </div>
-                <div class="hr-inner"></div>
-                <div class="detail-content">
-                    <!-- select from data -->
-                    <p>My Princess Bouquet</p>
-                    <p>Price: 300k</p>
-                    <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                </div>
-            </div>
-        </mat-grid-tile>
-        </mat-grid-list>
-
-        <mat-grid-list cols="4" class="grid-list">
-            <mat-grid-tile>
+            <mat-grid-tile *ngFor="let product of bestSellerProducts">
                 <div class="cols1">
                     <div class="cols1-inner">
-                        <a routerLink="/detailProduct"><img src="/assets/image/bouquetOfLove/5.jpg" alt=""></a>
+                        <a routerLink="/detailProduct/{{ product.id }}">
+                            <img [src]="product.url" alt="">
+                        </a>
                     </div>
                     <div class="hr-inner"></div>
                     <div class="detail-content">
-                        <!-- select from data -->
-                        <p>Love At First Sight Bouquet</p>
-                        <p>Price: 300k</p>
-                        <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                    </div>
-                </div>
-            </mat-grid-tile>
-
-            <mat-grid-tile>
-                <div class="cols1">
-                    <div class="cols1-inner">
-                        <a routerLink="/detailProduct"><img src="/assets/image/bouquetOfLove/6.jpg" alt=""></a>
-                    </div>
-                    <div class="hr-inner"></div>
-                    <div class="detail-content">
-                        <!-- select from data -->
-                        <p>Lily Bouquet</p>
-                        <p>Price: 300k</p>
-                        <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                    </div>
-                </div>
-            </mat-grid-tile>
-
-            <mat-grid-tile>
-                <div class="cols1">
-                    <div class="cols1-inner">
-                        <a routerLink="/detailProduct"><img src="/assets/image/bouquetOfLove/7.jpg" alt=""></a>
-                    </div>
-                    <div class="hr-inner"></div>
-                    <div class="detail-content">
-                        <!-- select from data -->
-                        <p>Intense Love Bouquet</p>
-                        <p>Price: 300k</p>
-                        <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                    </div>
-                </div>
-            </mat-grid-tile>
-
-            <mat-grid-tile>
-                <div class="cols1">
-                    <div class="cols1-inner">
-                        <a routerLink="/detailProduct"><img src="/assets/image/bouquetOfLove/8.jpg" alt=""></a>
-                    </div>
-                    <div class="hr-inner"></div>
-                    <div class="detail-content">
-                        <!-- select from data -->
-                        <p>Touch Of Spring Bouquet</p>
-                        <p>Price: 300k</p>
-                        <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
+                        <p>{{ product.name }}</p>
+                        <p>Price: {{ product.price| currency:"VND":"symbol"}}</p>
                     </div>
                 </div>
             </mat-grid-tile>
         </mat-grid-list>
-
+    </div>
+    <!-- bouquet of love -->
+    <div class="container2">
+        <div class="title"><span>Bó hoa yêu thương</span></div>
+        <div class="hr"></div>
         <mat-grid-list cols="4" class="grid-list">
-            <mat-grid-tile>
+            <mat-grid-tile *ngFor="let product of boquetLovelyProducts">
                 <div class="cols1">
                     <div class="cols1-inner">
-                        <a routerLink="/detailProduct"><img src="/assets/image/bouquetOfLove/9.jpg" alt=""></a>
+                        <a routerLink="/detailProduct/{{product.id}}">
+                            <img [src]="product.url" alt="">
+                        </a>
                     </div>
                     <div class="hr-inner"></div>
                     <div class="detail-content">
-                        <!-- select from data -->
-                        <p>Jasmine Bouquet</p>
-                        <p>Price: 300k</p>
-                        <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                    </div>
-                </div>
-            </mat-grid-tile>
-
-            <mat-grid-tile>
-                <div class="cols1">
-                    <div class="cols1-inner">
-                        <a routerLink="/detailProduct"><img src="/assets/image/bouquetOfLove/10.jpg" alt=""></a>
-                    </div>
-                    <div class="hr-inner"></div>
-                    <div class="detail-content">
-                        <!-- select from data -->
-                        <p>Summertime Bouquet</p>
-                        <p>Price: 300k</p>
-                        <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                    </div>
-                </div>
-            </mat-grid-tile>
-
-            <mat-grid-tile>
-                <div class="cols1">
-                    <div class="cols1-inner">
-                        <a routerLink="/detailProduct"><img src="/assets/image/bouquetOfLove/11.jpg" alt=""></a>
-                    </div>
-                    <div class="hr-inner"></div>
-                    <div class="detail-content">
-                        <!-- select from data -->
-                        <p>Chloe Bouquet</p>
-                        <p>Price: 300k</p>
-                        <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                    </div>
-                </div>
-            </mat-grid-tile>
-
-            <mat-grid-tile>
-                <div class="cols1">
-                    <div class="cols1-inner">
-                        <a routerLink="/detailProduct"><img src="/assets/image/bouquetOfLove/12.jpg" alt=""></a>
-                    </div>
-                    <div class="hr-inner"></div>
-                    <div class="detail-content">
-                        <!-- select from data -->
-                        <p>Forever Bouquet</p>
-                        <p>Price: 300k</p>
-                        <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
+                        <p>{{ product.name }}</p>
+                        <p>Price: {{ product.price | currency:"VND":"symbol" }} VND</p>
                     </div>
                 </div>
             </mat-grid-tile>
@@ -375,190 +121,21 @@
     </div>
 
     <!-- Unique Flower Box -->
-    <div class="container3">
-        <div class="title"><span>Unique flower box</span></div>
+    <div class="container2">
+        <div class="title"><span>Hộp Hoa Độc Đáo</span></div>
         <div class="hr"></div>
         <mat-grid-list cols="4" class="grid-list">
-            <mat-grid-tile>
-            <div class="cols1">
-                <div class="cols1-inner">
-                    <a routerLink="/detailProduct"><img src="/assets/image/UniqueFlowerBox/1.jpg" alt=""></a>
-                </div>
-                <div class="hr-inner"></div>
-                <div class="detail-content">
-                    <!-- select from data -->
-                    <p>Sunshine Wooden Flower Box</p>
-                    <p>Price: 300k</p>
-                    <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                </div>
-            </div>
-        </mat-grid-tile>
-        
-        <mat-grid-tile>
-            <div class="cols1">
-                <div class="cols1-inner">
-                    <a routerLink="/detailProduct"><img src="/assets/image/UniqueFlowerBox/2.jpg" alt=""></a>
-                </div>
-                <div class="hr-inner"></div>
-                <div class="detail-content">
-                    <!-- select from data -->
-                    <p>Have A Sweet Day Box</p>
-                    <p>Price: 300k</p>
-                    <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                </div>
-            </div>
-        </mat-grid-tile>
-
-        <mat-grid-tile>
-            <div class="cols1">
-                <div class="cols1-inner">
-                    <a routerLink="/detailProduct"><img src="/assets/image/UniqueFlowerBox/3.jpg" alt=""></a>
-                </div>
-                <div class="hr-inner"></div>
-                <div class="detail-content">
-                    <!-- select from data -->
-                    <p>Majestic Wooden Flower Box</p>
-                    <p>Price: 300k</p>
-                    <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                </div>
-            </div>
-        </mat-grid-tile>
-
-        <mat-grid-tile>
-            <div class="cols1">
-                <div class="cols1-inner">
-                    <a routerLink="/detailProduct"><img src="/assets/image/UniqueFlowerBox/4.jpg" alt=""></a>
-                </div>
-                <div class="hr-inner"></div>
-                <div class="detail-content">
-                    <!-- select from data -->
-                    <p>Euphoria Wooden Flower Box</p>
-                    <p>Price: 300k</p>
-                    <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                </div>
-            </div>
-        </mat-grid-tile>
-        </mat-grid-list>
-
-        <mat-grid-list cols="4" class="grid-list">
-            <mat-grid-tile>
+            <mat-grid-tile *ngFor="let product of uniqueFlowerBoxProduct">
                 <div class="cols1">
                     <div class="cols1-inner">
-                        <a routerLink="/detailProduct"><img src="/assets/image/UniqueFlowerBox/5.jpg" alt=""></a>
+                        <a routerLink="/detailProduct/{{product.id}}">
+                            <img [src]="product.url" alt="">
+                        </a>
                     </div>
                     <div class="hr-inner"></div>
                     <div class="detail-content">
-                        <!-- select from data -->
-                        <p>Moonlight Lover Flower Box</p>
-                        <p>Price: 300k</p>
-                        <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                    </div>
-                </div>
-            </mat-grid-tile>
-
-            <mat-grid-tile>
-                <div class="cols1">
-                    <div class="cols1-inner">
-                        <a routerLink="/detailProduct"><img src="/assets/image/UniqueFlowerBox/6.jpg" alt=""></a>
-                    </div>
-                    <div class="hr-inner"></div>
-                    <div class="detail-content">
-                        <!-- select from data -->
-                        <p>Secret Lover Flower Box</p>
-                        <p>Price: 300k</p>
-                        <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                    </div>
-                </div>
-            </mat-grid-tile>
-
-            <mat-grid-tile>
-                <div class="cols1">
-                    <div class="cols1-inner">
-                        <a routerLink="/detailProduct"><img src="/assets/image/UniqueFlowerBox/7.jpg" alt=""></a>
-                    </div>
-                    <div class="hr-inner"></div>
-                    <div class="detail-content">
-                        <!-- select from data -->
-                        <p>Sherbet Sunset Flower Box</p>
-                        <p>Price: 300k</p>
-                        <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                    </div>
-                </div>
-            </mat-grid-tile>
-
-            <mat-grid-tile>
-                <div class="cols1">
-                    <div class="cols1-inner">
-                        <a routerLink="/detailProduct"><img src="/assets/image/UniqueFlowerBox/8.jpg" alt=""></a>
-                    </div>
-                    <div class="hr-inner"></div>
-                    <div class="detail-content">
-                        <!-- select from data -->
-                        <p>California Lover Flower Box</p>
-                        <p>Price: 300k</p>
-                        <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                    </div>
-                </div>
-            </mat-grid-tile>
-        </mat-grid-list>
-
-        <mat-grid-list cols="4" class="grid-list">
-            <mat-grid-tile>
-                <div class="cols1">
-                    <div class="cols1-inner">
-                        <a routerLink="/detailProduct"><img src="/assets/image/UniqueFlowerBox/9.jpg" alt=""></a>
-                    </div>
-                    <div class="hr-inner"></div>
-                    <div class="detail-content">
-                        <!-- select from data -->
-                        <p>Cupid's Kisses Flower Box</p>
-                        <p>Price: 300k</p>
-                        <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                    </div>
-                </div>
-            </mat-grid-tile>
-
-            <mat-grid-tile>
-                <div class="cols1">
-                    <div class="cols1-inner">
-                        <a routerLink="/detailProduct"><img src="/assets/image/UniqueFlowerBox/10.jpg" alt=""></a>
-                    </div>
-                    <div class="hr-inner"></div>
-                    <div class="detail-content">
-                        <!-- select from data -->
-                        <p>Pretty Glory Flower Box</p>
-                        <p>Price: 300k</p>
-                        <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                    </div>
-                </div>
-            </mat-grid-tile>
-
-            <mat-grid-tile>
-                <div class="cols1">
-                    <div class="cols1-inner">
-                        <a routerLink="/detailProduct"><img src="/assets/image/UniqueFlowerBox/11.jpg" alt=""></a>
-                    </div>
-                    <div class="hr-inner"></div>
-                    <div class="detail-content">
-                        <!-- select from data -->
-                        <p>Wooden Flower Box</p>
-                        <p>Price: 300k</p>
-                        <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                    </div>
-                </div>
-            </mat-grid-tile>
-
-            <mat-grid-tile>
-                <div class="cols1">
-                    <div class="cols1-inner">
-                        <a routerLink="/detailProduct"><img src="/assets/image/UniqueFlowerBox/12.jpg" alt=""></a>
-                    </div>
-                    <div class="hr-inner"></div>
-                    <div class="detail-content">
-                        <!-- select from data -->
-                        <p>Rose Wooden Flower Box</p>
-                        <p>Price: 300k</p>
-                        <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
+                        <p>{{ product.name }}</p>
+                        <p>Price: {{ product.price | currency:"VND":"symbol" }} VND</p>
                     </div>
                 </div>
             </mat-grid-tile>
@@ -566,827 +143,89 @@
     </div>
 
     <!-- Elegant Flower Baskets -->
-    <div class="container3">
-        <div class="title"><span>Elegant flower baskets</span></div>
+    <div class="container2">
+        <div class="title"><span>Giỏ Hoa Thanh Lịch</span></div>
         <div class="hr"></div>
         <mat-grid-list cols="4" class="grid-list">
-            <mat-grid-tile>
-            <div class="cols1">
-                <div class="cols1-inner">
-                    <a routerLink="/detailProduct"><img src="/assets/image/ElegantFlowerBaskets/1.jpg" alt=""></a>
-                </div>
-                <div class="hr-inner"></div>
-                <div class="detail-content">
-                    <!-- select from data -->
-                    <p>Basket of White Roses</p>
-                    <p>Price: 300k</p>
-                    <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                </div>
-            </div>
-        </mat-grid-tile>
-        
-        <mat-grid-tile>
-            <div class="cols1">
-                <div class="cols1-inner">
-                    <a routerLink="/detailProduct"><img src="/assets/image/ElegantFlowerBaskets/2.jpg" alt=""></a>
-                </div>
-                <div class="hr-inner"></div>
-                <div class="detail-content">
-                    <!-- select from data -->
-                    <p>Love Paradise Flower Basket</p>
-                    <p>Price: 300k</p>
-                    <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                </div>
-            </div>
-        </mat-grid-tile>
-
-        <mat-grid-tile>
-            <div class="cols1">
-                <div class="cols1-inner">
-                    <a routerLink="/detailProduct"><img src="/assets/image/ElegantFlowerBaskets/3.jpg" alt=""></a>
-                </div>
-                <div class="hr-inner"></div>
-                <div class="detail-content">
-                    <!-- select from data -->
-                    <p>Diamond Love Flower Basket</p>
-                    <p>Price: 300k</p>
-                    <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                </div>
-            </div>
-        </mat-grid-tile>
-
-        <mat-grid-tile>
-            <div class="cols1">
-                <div class="cols1-inner">
-                    <a routerLink="/detailProduct"><img src="/assets/image/ElegantFlowerBaskets/4.jpg" alt=""></a>
-                </div>
-                <div class="hr-inner"></div>
-                <div class="detail-content">
-                    <!-- select from data -->
-                    <p>Periwinkle Flower Basket</p>
-                    <p>Price: 300k</p>
-                    <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                </div>
-            </div>
-        </mat-grid-tile>
-        </mat-grid-list>
-
-        <mat-grid-list cols="4" class="grid-list">
-            <mat-grid-tile>
+            <mat-grid-tile *ngFor="let product of elegantFlowerBaskets">
                 <div class="cols1">
                     <div class="cols1-inner">
-                        <a routerLink="/detailProduct"><img src="/assets/image/ElegantFlowerBaskets/5.jpg" alt=""></a>
+                        <a routerLink="/detailProduct/{{product.id}}">
+                            <img [src]="product.url" alt="">
+                        </a>
                     </div>
                     <div class="hr-inner"></div>
                     <div class="detail-content">
-                        <!-- select from data -->
-                        <p>White Plum Flower Basket</p>
-                        <p>Price: 300k</p>
-                        <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                    </div>
-                </div>
-            </mat-grid-tile>
-
-            <mat-grid-tile>
-                <div class="cols1">
-                    <div class="cols1-inner">
-                        <a routerLink="/detailProduct"><img src="/assets/image/ElegantFlowerBaskets/6.jpg" alt=""></a>
-                    </div>
-                    <div class="hr-inner"></div>
-                    <div class="detail-content">
-                        <!-- select from data -->
-                        <p>Wish You Health Flower Fruit Basket</p>
-                        <p>Price: 300k</p>
-                        <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                    </div>
-                </div>
-            </mat-grid-tile>
-
-            <mat-grid-tile>
-                <div class="cols1">
-                    <div class="cols1-inner">
-                        <a routerLink="/detailProduct"><img src="/assets/image/ElegantFlowerBaskets/7.jpg" alt=""></a>
-                    </div>
-                    <div class="hr-inner"></div>
-                    <div class="detail-content">
-                        <!-- select from data -->
-                        <p>Orange Blossom Flower Basket</p>
-                        <p>Price: 300k</p>
-                        <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                    </div>
-                </div>
-            </mat-grid-tile>
-
-            <mat-grid-tile>
-                <div class="cols1">
-                    <div class="cols1-inner">
-                        <a routerLink="/detailProduct"><img src="/assets/image/ElegantFlowerBaskets/8.jpg" alt=""></a>
-                    </div>
-                    <div class="hr-inner"></div>
-                    <div class="detail-content">
-                        <!-- select from data -->
-                        <p>Anna's Garden Flower Basket</p>
-                        <p>Price: 300k</p>
-                        <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                    </div>
-                </div>
-            </mat-grid-tile>
-        </mat-grid-list>
-
-        <mat-grid-list cols="4" class="grid-list">
-            <mat-grid-tile>
-                <div class="cols1">
-                    <div class="cols1-inner">
-                        <a routerLink="/detailProduct"><img src="/assets/image/ElegantFlowerBaskets/9.jpg" alt=""></a>
-                    </div>
-                    <div class="hr-inner"></div>
-                    <div class="detail-content">
-                        <!-- select from data -->
-                        <p>Intimate Amber Flower Basket</p>
-                        <p>Price: 300k</p>
-                        <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                    </div>
-                </div>
-            </mat-grid-tile>
-
-            <mat-grid-tile>
-                <div class="cols1">
-                    <div class="cols1-inner">
-                        <a routerLink="/detailProduct"><img src="/assets/image/ElegantFlowerBaskets/10.jpg" alt=""></a>
-                    </div>
-                    <div class="hr-inner"></div>
-                    <div class="detail-content">
-                        <!-- select from data -->
-                        <p>Be Happy Flower Basket</p>
-                        <p>Price: 300k</p>
-                        <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                    </div>
-                </div>
-            </mat-grid-tile>
-
-            <mat-grid-tile>
-                <div class="cols1">
-                    <div class="cols1-inner">
-                        <a routerLink="/detailProduct"><img src="/assets/image/ElegantFlowerBaskets/11.jpg" alt=""></a>
-                    </div>
-                    <div class="hr-inner"></div>
-                    <div class="detail-content">
-                        <!-- select from data -->
-                        <p>Sunflowers and Roses Basket</p>
-                        <p>Price: 300k</p>
-                        <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                    </div>
-                </div>
-            </mat-grid-tile>
-
-            <mat-grid-tile>
-                <div class="cols1">
-                    <div class="cols1-inner">
-                        <a routerLink="/detailProduct"><img src="/assets/image/ElegantFlowerBaskets/12.jpg" alt=""></a>
-                    </div>
-                    <div class="hr-inner"></div>
-                    <div class="detail-content">
-                        <!-- select from data -->
-                        <p>Rose Wooden Flower Box</p>
-                        <p>Price: 300k</p>
-                        <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
+                        <p>{{ product.name }}</p>
+                        <p>Price: {{ product.price | currency:"VND":"symbol" }} VND</p>
                     </div>
                 </div>
             </mat-grid-tile>
         </mat-grid-list>
     </div>
-    
-<!-- Favorite flower shelf -->
-<div class="container4">
-    <div class="title"><span>Favorite flower shelf</span></div>
-    <div class="hr"></div>
-    <mat-grid-list cols="4" class="grid-list">
-        <mat-grid-tile>
-        <div class="cols1">
-            <div class="cols1-inner">
-                <a routerLink="/detailProduct"><img src="/assets/image/FavoriteFlowerShelf/1.jpg" alt=""></a>
-            </div>
-            <div class="hr-inner"></div>
-            <div class="detail-content">
-                <!-- select from data -->
-                <p>Glamorous Flower Shelf</p>
-                <p>Price: 300k</p>
-                <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-            </div>
-        </div>
-    </mat-grid-tile>
-    
-    <mat-grid-tile>
-        <div class="cols1">
-            <div class="cols1-inner">
-                <a routerLink="/detailProduct"><img src="/assets/image/FavoriteFlowerShelf/2.jpg" alt=""></a>
-            </div>
-            <div class="hr-inner"></div>
-            <div class="detail-content">
-                <!-- select from data -->
-                <p>Urban Success Flower Shelf </p>
-                <p>Price: 300k</p>
-                <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-            </div>
-        </div>
-    </mat-grid-tile>
 
-    <mat-grid-tile>
-        <div class="cols1">
-            <div class="cols1-inner">
-                <a routerLink="/detailProduct"><img src="/assets/image/FavoriteFlowerShelf/3.jpg" alt=""></a>
-            </div>
-            <div class="hr-inner"></div>
-            <div class="detail-content">
-                <!-- select from data -->
-                <p>Circle Of Happiness Flower Shelf</p>
-                <p>Price: 300k</p>
-                <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-            </div>
-        </div>
-    </mat-grid-tile>
+    <!-- Favorite flower shelf -->
+    <div class="container2">
+        <div class="title"><span>Kệ Hoa Yêu Thích</span></div>
+        <div class="hr"></div>
+        <mat-grid-list cols="4" class="grid-list">
+            <mat-grid-tile *ngFor="let product of favoriteFlowerShelf">
+                <div class="cols1">
+                    <div class="cols1-inner">
+                        <a routerLink="/detailProduct/{{product.id}}">
+                            <img [src]="product.url" alt="">
+                        </a>
+                    </div>
+                    <div class="hr-inner"></div>
+                    <div class="detail-content">
+                        <p>{{ product.name }}</p>
+                        <p>Price: {{ product.price | currency:"VND":"symbol" }} VND</p>
+                    </div>
+                </div>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </div>
+    <!-- Ornamental pots -->
+    <div class="container2">
+        <div class="title"><span>Cây Để Bàn</span></div>
+        <div class="hr"></div>
+        <mat-grid-list cols="4" class="grid-list">
+            <mat-grid-tile *ngFor="let product of ornamentalPots">
+                <div class="cols1">
+                    <div class="cols1-inner">
+                        <a routerLink="/detailProduct/{{product.id}}">
+                            <img [src]="product.url" alt="">
+                        </a>
+                    </div>
+                    <div class="hr-inner"></div>
+                    <div class="detail-content">
+                        <p>{{ product.name }}</p>
+                        <p>Price: {{ product.price | currency:"VND":"symbol" }} VND</p>
+                    </div>
+                </div>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </div>
 
-    <mat-grid-tile>
-        <div class="cols1">
-            <div class="cols1-inner">
-                <a routerLink="/detailProduct"><img src="/assets/image/FavoriteFlowerShelf/4.jpg" alt=""></a>
-            </div>
-            <div class="hr-inner"></div>
-            <div class="detail-content">
-                <!-- select from data -->
-                <p>Rising Stars Flower Shelf</p>
-                <p>Price: 300k</p>
-                <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-            </div>
-        </div>
-    </mat-grid-tile>
-    </mat-grid-list>
-
-    <mat-grid-list cols="4" class="grid-list">
-        <mat-grid-tile>
-            <div class="cols1">
-                <div class="cols1-inner">
-                    <a routerLink="/detailProduct"><img src="/assets/image/FavoriteFlowerShelf/5.jpg" alt=""></a>
+    <!-- Other gifts -->
+    <div class="container2">
+        <div class="title"><span>Món Quà Khác</span></div>
+        <div class="hr"></div>
+        <mat-grid-list cols="4" class="grid-list">
+            <mat-grid-tile *ngFor="let product of otherGifts">
+                <div class="cols1">
+                    <div class="cols1-inner">
+                        <a routerLink="/detailProduct/{{product.id}}">
+                            <img [src]="product.url" alt="">
+                        </a>
+                    </div>
+                    <div class="hr-inner"></div>
+                    <div class="detail-content">
+                        <p>{{ product.name }}</p>
+                        <p>Price: {{ product.price | currency:"VND":"symbol" }} VND</p>
+                    </div>
                 </div>
-                <div class="hr-inner"></div>
-                <div class="detail-content">
-                    <!-- select from data -->
-                    <p>Golden Times Flower Shelf</p>
-                    <p>Price: 300k</p>
-                    <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                </div>
-            </div>
-        </mat-grid-tile>
-
-        <mat-grid-tile>
-            <div class="cols1">
-                <div class="cols1-inner">
-                    <a routerLink="/detailProduct"><img src="/assets/image/FavoriteFlowerShelf/6.jpg" alt=""></a>
-                </div>
-                <div class="hr-inner"></div>
-                <div class="detail-content">
-                    <!-- select from data -->
-                    <p>Opening Flower Shelf</p>
-                    <p>Price: 300k</p>
-                    <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                </div>
-            </div>
-        </mat-grid-tile>
-
-        <mat-grid-tile>
-            <div class="cols1">
-                <div class="cols1-inner">
-                    <a routerLink="/detailProduct"><img src="/assets/image/FavoriteFlowerShelf/7.jpg" alt=""></a>
-                </div>
-                <div class="hr-inner"></div>
-                <div class="detail-content">
-                    <!-- select from data -->
-                    <p>Floral Greeting Shelf</p>
-                    <p>Price: 300k</p>
-                    <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                </div>
-            </div>
-        </mat-grid-tile>
-
-        <mat-grid-tile>
-            <div class="cols1">
-                <div class="cols1-inner">
-                    <a routerLink="/detailProduct"><img src="/assets/image/FavoriteFlowerShelf/8.jpg" alt=""></a>
-                </div>
-                <div class="hr-inner"></div>
-                <div class="detail-content">
-                    <!-- select from data -->
-                    <p>Rich Flower Shelf</p>
-                    <p>Price: 300k</p>
-                    <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                </div>
-            </div>
-        </mat-grid-tile>
-    </mat-grid-list>
-
-    <mat-grid-list cols="4" class="grid-list">
-        <mat-grid-tile>
-            <div class="cols1">
-                <div class="cols1-inner">
-                    <a routerLink="/detailProduct"><img src="/assets/image/FavoriteFlowerShelf/9.jpg" alt=""></a>
-                </div>
-                <div class="hr-inner"></div>
-                <div class="detail-content">
-                    <!-- select from data -->
-                    <p>Special Flower Shelf</p>
-                    <p>Price: 300k</p>
-                    <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                </div>
-            </div>
-        </mat-grid-tile>
-
-        <mat-grid-tile>
-            <div class="cols1">
-                <div class="cols1-inner">
-                    <a routerLink="/detailProduct"><img src="/assets/image/FavoriteFlowerShelf/10.jpg" alt=""></a>
-                </div>
-                <div class="hr-inner"></div>
-                <div class="detail-content">
-                    <!-- select from data -->
-                    <p>Condolence Wreath</p>
-                    <p>Price: 300k</p>
-                    <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                </div>
-            </div>
-        </mat-grid-tile>
-
-        <mat-grid-tile>
-            <div class="cols1">
-                <div class="cols1-inner">
-                    <a routerLink="/detailProduct"><img src="/assets/image/FavoriteFlowerShelf/11.jpg" alt=""></a>
-                </div>
-                <div class="hr-inner"></div>
-                <div class="detail-content">
-                    <!-- select from data -->
-                    <p>Goodbye Salute Flower Shelf</p>
-                    <p>Price: 300k</p>
-                    <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                </div>
-            </div>
-        </mat-grid-tile>
-
-        <mat-grid-tile>
-            <div class="cols1">
-                <div class="cols1-inner">
-                    <a routerLink="/detailProduct"><img src="/assets/image/FavoriteFlowerShelf/12.jpg" alt=""></a>
-                </div>
-                <div class="hr-inner"></div>
-                <div class="detail-content">
-                    <!-- select from data -->
-                    <p>Remembrance Flower Shelf</p>
-                    <p>Price: 300k</p>
-                    <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                </div>
-            </div>
-        </mat-grid-tile>
-    </mat-grid-list>
-</div>
-<!-- Ornamental pots -->
-<div class="container5">
-    <div class="title"><span>Ornamental pots</span></div>
-    <div class="hr"></div>
-    <mat-grid-list cols="4" class="grid-list">
-        <mat-grid-tile>
-        <div class="cols1">
-            <div class="cols1-inner">
-                <a routerLink="/detailProduct"><img src="/assets/image/OrnamentalPots/1.jpg" alt=""></a>
-            </div>
-            <div class="hr-inner"></div>
-            <div class="detail-content">
-                <!-- select from data -->
-                <p> Mix Succulents</p>
-                <p>Price: 300k</p>
-                <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-            </div>
-        </div>
-    </mat-grid-tile>
-    
-    <mat-grid-tile>
-        <div class="cols1">
-            <div class="cols1-inner">
-                <a routerLink="/detailProduct"><img src="/assets/image/OrnamentalPots/2.jpg" alt=""></a>
-            </div>
-            <div class="hr-inner"></div>
-            <div class="detail-content">
-                <!-- select from data -->
-                <p>Round Cactus</p>
-                <p>Price: 300k</p>
-                <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-            </div>
-        </div>
-    </mat-grid-tile>
-
-    <mat-grid-tile>
-        <div class="cols1">
-            <div class="cols1-inner">
-                <a routerLink="/detailProduct"><img src="/assets/image/OrnamentalPots/3.jpg" alt=""></a>
-            </div>
-            <div class="hr-inner"></div>
-            <div class="detail-content">
-                <!-- select from data -->
-                <p>Mini Succulents</p>
-                <p>Price: 300k</p>
-                <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-            </div>
-        </div>
-    </mat-grid-tile>
-
-    <mat-grid-tile>
-        <div class="cols1">
-            <div class="cols1-inner">
-                <a routerLink="/detailProduct"><img src="/assets/image/OrnamentalPots/4.jpg" alt=""></a>
-            </div>
-            <div class="hr-inner"></div>
-            <div class="detail-content">
-                <!-- select from data -->
-                <p>Mix Cactus</p>
-                <p>Price: 300k</p>
-                <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-            </div>
-        </div>
-    </mat-grid-tile>
-    </mat-grid-list>
-
-    <mat-grid-list cols="4" class="grid-list">
-        <mat-grid-tile>
-            <div class="cols1">
-                <div class="cols1-inner">
-                    <a routerLink="/detailProduct"><img src="/assets/image/OrnamentalPots/5.jpg" alt=""></a>
-                </div>
-                <div class="hr-inner"></div>
-                <div class="detail-content">
-                    <!-- select from data -->
-                    <p> Pretty Succulents</p>
-                    <p>Price: 300k</p>
-                    <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                </div>
-            </div>
-        </mat-grid-tile>
-
-        <mat-grid-tile>
-            <div class="cols1">
-                <div class="cols1-inner">
-                    <a routerLink="/detailProduct"><img src="/assets/image/OrnamentalPots/6.jpg" alt=""></a>
-                </div>
-                <div class="hr-inner"></div>
-                <div class="detail-content">
-                    <!-- select from data -->
-                    <p>Unique Succulents</p>
-                    <p>Price: 300k</p>
-                    <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                </div>
-            </div>
-        </mat-grid-tile>
-
-        <mat-grid-tile>
-            <div class="cols1">
-                <div class="cols1-inner">
-                    <a routerLink="/detailProduct"><img src="/assets/image/OrnamentalPots/7.jpg" alt=""></a>
-                </div>
-                <div class="hr-inner"></div>
-                <div class="detail-content">
-                    <!-- select from data -->
-                    <p>Succulents Animal Porcelain Pots</p>
-                    <p>Price: 300k</p>
-                    <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                </div>
-            </div>
-        </mat-grid-tile>
-
-        <mat-grid-tile>
-            <div class="cols1">
-                <div class="cols1-inner">
-                    <a routerLink="/detailProduct"><img src="/assets/image/OrnamentalPots/8.jpg" alt=""></a>
-                </div>
-                <div class="hr-inner"></div>
-                <div class="detail-content">
-                    <!-- select from data -->
-                    <p>Succulents Ceramic Pots </p>
-                    <p>Price: 300k</p>
-                    <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                </div>
-            </div>
-        </mat-grid-tile>
-    </mat-grid-list>
-
-    <mat-grid-list cols="4" class="grid-list">
-        <mat-grid-tile>
-            <div class="cols1">
-                <div class="cols1-inner">
-                    <a routerLink="/detailProduct"><img src="/assets/image/OrnamentalPots/9.jpg" alt=""></a>
-                </div>
-                <div class="hr-inner"></div>
-                <div class="detail-content">
-                    <!-- select from data -->
-                    <p>Couple Succulents</p>
-                    <p>Price: 300k</p>
-                    <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                </div>
-            </div>
-        </mat-grid-tile>
-
-        <mat-grid-tile>
-            <div class="cols1">
-                <div class="cols1-inner">
-                    <a routerLink="/detailProduct"><img src="/assets/image/OrnamentalPots/10.jpg" alt=""></a>
-                </div>
-                <div class="hr-inner"></div>
-                <div class="detail-content">
-                    <!-- select from data -->
-                    <p>Heart Succulents</p>
-                    <p>Price: 300k</p>
-                    <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                </div>
-            </div>
-        </mat-grid-tile>
-
-        <mat-grid-tile>
-            <div class="cols1">
-                <div class="cols1-inner">
-                    <a routerLink="/detailProduct"><img src="/assets/image/OrnamentalPots/11.jpg" alt=""></a>
-                </div>
-                <div class="hr-inner"></div>
-                <div class="detail-content">
-                    <!-- select from data -->
-                    <p>Cute Cactus</p>
-                    <p>Price: 300k</p>
-                    <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                </div>
-            </div>
-        </mat-grid-tile>
-
-        <mat-grid-tile>
-            <div class="cols1">
-                <div class="cols1-inner">
-                    <a routerLink="/detailProduct"><img src="/assets/image/OrnamentalPots/12.jpg" alt=""></a>
-                </div>
-                <div class="hr-inner"></div>
-                <div class="detail-content">
-                    <!-- select from data -->
-                    <p>Rabbit Ear Cactus</p>
-                    <p>Price: 300k</p>
-                    <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                </div>
-            </div>
-        </mat-grid-tile>
-    </mat-grid-list>
-</div>
-
-<!-- Other gifts -->
-<div class="container5">
-    <div class="title"><span>Other gifts</span></div>
-    <div class="hr"></div>
-    <mat-grid-list cols="4" class="grid-list">
-        <mat-grid-tile>
-        <div class="cols1">
-            <div class="cols1-inner">
-                <a routerLink="/detailProduct"><img src="/assets/image/OtherGifts/1.jpg" alt=""></a>
-            </div>
-            <div class="hr-inner"></div>
-            <div class="detail-content">
-                <!-- select from data -->
-                <p>Brown Line Friend</p>
-                <p>Price: 300k</p>
-                <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-            </div>
-        </div>
-    </mat-grid-tile>
-    
-    <mat-grid-tile>
-        <div class="cols1">
-            <div class="cols1-inner">
-                <a routerLink="/detailProduct"><img src="/assets/image/OtherGifts/2.jpg" alt=""></a>
-            </div>
-            <div class="hr-inner"></div>
-            <div class="detail-content">
-                <!-- select from data -->
-                <p>Rabbit Knitting</p>
-                <p>Price: 300k</p>
-                <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-            </div>
-        </div>
-    </mat-grid-tile>
-
-    <mat-grid-tile>
-        <div class="cols1">
-            <div class="cols1-inner">
-                <a routerLink="/detailProduct"><img src="/assets/image/OtherGifts/3.jpg" alt=""></a>
-            </div>
-            <div class="hr-inner"></div>
-            <div class="detail-content">
-                <!-- select from data -->
-                <p>Lovely Teddy Bear</p>
-                <p>Price: 300k</p>
-                <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-            </div>
-        </div>
-    </mat-grid-tile>
-
-    <mat-grid-tile>
-        <div class="cols1">
-            <div class="cols1-inner">
-                <a routerLink="/detailProduct"><img src="/assets/image/OtherGifts/4.jpg" alt=""></a>
-            </div>
-            <div class="hr-inner"></div>
-            <div class="detail-content">
-                <!-- select from data -->
-                <p>Teddy Vanilla</p>
-                <p>Price: 300k</p>
-                <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-            </div>
-        </div>
-    </mat-grid-tile>
-    </mat-grid-list>
-
-    <mat-grid-list cols="4" class="grid-list">
-        <mat-grid-tile>
-            <div class="cols1">
-                <div class="cols1-inner">
-                    <a routerLink="/detailProduct"><img src="/assets/image/OtherGifts/5.jpg" alt=""></a>
-                </div>
-                <div class="hr-inner"></div>
-                <div class="detail-content">
-                    <!-- select from data -->
-                    <p>Ferrero Rocher Chocolate</p>
-                    <p>Price: 300k</p>
-                    <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                </div>
-            </div>
-        </mat-grid-tile>
-
-        <mat-grid-tile>
-            <div class="cols1">
-                <div class="cols1-inner">
-                    <a routerLink="/detailProduct"><img src="/assets/image/OtherGifts/6.jpg" alt=""></a>
-                </div>
-                <div class="hr-inner"></div>
-                <div class="detail-content">
-                    <!-- select from data -->
-                    <p>Assorted Chocolate Box</p>
-                    <p>Price: 300k</p>
-                    <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                </div>
-            </div>
-        </mat-grid-tile>
-
-        <mat-grid-tile>
-            <div class="cols1">
-                <div class="cols1-inner">
-                    <a routerLink="/detailProduct"><img src="/assets/image/OtherGifts/7.jpg" alt=""></a>
-                </div>
-                <div class="hr-inner"></div>
-                <div class="detail-content">
-                    <!-- select from data -->
-                    <p>Disney Birthday Chocolate Box</p>
-                    <p>Price: 300k</p>
-                    <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                </div>
-            </div>
-        </mat-grid-tile>
-
-        <mat-grid-tile>
-            <div class="cols1">
-                <div class="cols1-inner">
-                    <a routerLink="/detailProduct"><img src="/assets/image/OtherGifts/8.jpg" alt=""></a>
-                </div>
-                <div class="hr-inner"></div>
-                <div class="detail-content">
-                    <!-- select from data -->
-                    <p>Heart Chocolate box</p>
-                    <p>Price: 300k</p>
-                    <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                </div>
-            </div>
-        </mat-grid-tile>
-    </mat-grid-list>
-
-    <mat-grid-list cols="4" class="grid-list">
-        <mat-grid-tile>
-            <div class="cols1">
-                <div class="cols1-inner">
-                    <a routerLink="/detailProduct"><img src="/assets/image/OtherGifts/9.jpg" alt=""></a>
-                </div>
-                <div class="hr-inner"></div>
-                <div class="detail-content">
-                    <!-- select from data -->
-                    <p>Jasmint Scented Candles (200gr)</p>
-                    <p>Price: 300k</p>
-                    <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                </div>
-            </div>
-        </mat-grid-tile>
-
-        <mat-grid-tile>
-            <div class="cols1">
-                <div class="cols1-inner">
-                    <a routerLink="/detailProduct"><img src="/assets/image/OtherGifts/10.jpg" alt=""></a>
-                </div>
-                <div class="hr-inner"></div>
-                <div class="detail-content">
-                    <!-- select from data -->
-                    <p>Adore Scented Candles (200gr)</p>
-                    <p>Price: 300k</p>
-                    <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                </div>
-            </div>
-        </mat-grid-tile>
-
-        <mat-grid-tile>
-            <div class="cols1">
-                <div class="cols1-inner">
-                    <a routerLink="/detailProduct"><img src="/assets/image/OtherGifts/11.jpg" alt=""></a>
-                </div>
-                <div class="hr-inner"></div>
-                <div class="detail-content">
-                    <!-- select from data -->
-                    <p>Gingergrass Scented Candles(100gr)</p>
-                    <p>Price: 300k</p>
-                    <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                </div>
-            </div>
-        </mat-grid-tile>
-
-        <mat-grid-tile>
-            <div class="cols1">
-                <div class="cols1-inner">
-                    <a routerLink="/detailProduct"><img src="/assets/image/OtherGifts/12.jpg" alt=""></a>
-                </div>
-                <div class="hr-inner"></div>
-                <div class="detail-content">
-                    <!-- select from data -->
-                    <p>White Tea Scented Candles (100gr)</p>
-                    <p>Price: 300k</p>
-                    <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                </div>
-            </div>
-        </mat-grid-tile>
-    </mat-grid-list>
-
-    <mat-grid-list cols="4" class="grid-list">
-        <mat-grid-tile>
-            <div class="cols1">
-                <div class="cols1-inner">
-                    <a routerLink="/detailProduct"><img src="/assets/image/OtherGifts/13.jpg" alt=""></a>
-                </div>
-                <div class="hr-inner"></div>
-                <div class="detail-content">
-                    <!-- select from data -->
-                    <p>Be Always Blooming Greeting Cards</p>
-                    <p>Price: 300k</p>
-                    <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                </div>
-            </div>
-        </mat-grid-tile>
-
-        <mat-grid-tile>
-            <div class="cols1">
-                <div class="cols1-inner">
-                    <a routerLink="/detailProduct"><img src="/assets/image/OtherGifts/14.jpg" alt=""></a>
-                </div>
-                <div class="hr-inner"></div>
-                <div class="detail-content">
-                    <!-- select from data -->
-                    <p>Happy Birthday Card</p>
-                    <p>Price: 300k</p>
-                    <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                </div>
-            </div>
-        </mat-grid-tile>
-
-        <mat-grid-tile>
-            <div class="cols1">
-                <div class="cols1-inner">
-                    <a routerLink="/detailProduct"><img src="/assets/image/OtherGifts/15.jpg" alt=""></a>
-                </div>
-                <div class="hr-inner"></div>
-                <div class="detail-content">
-                    <!-- select from data -->
-                    <p>White Baby Seal Card</p>
-                    <p>Price: 300k</p>
-                    <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                </div>
-            </div>
-        </mat-grid-tile>
-
-        <mat-grid-tile>
-            <div class="cols1">
-                <div class="cols1-inner">
-                    <a routerLink="/detailProduct"><img src="/assets/image/OtherGifts/16.jpg" alt=""></a>
-                </div>
-                <div class="hr-inner"></div>
-                <div class="detail-content">
-                    <!-- select from data -->
-                    <p>Our Future Looks Bright Card</p>
-                    <p>Price: 300k</p>
-                    <a routerLink="/detailProduct"><button><mat-icon>add_shopping_cart</mat-icon>Buy now</button></a>
-                </div>
-            </div>
-        </mat-grid-tile>
-    </mat-grid-list>
-</div>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </div>
 </router-outlet>

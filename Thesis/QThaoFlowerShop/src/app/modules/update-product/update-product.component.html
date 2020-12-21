@@ -1,0 +1,58 @@
+<div class="container">
+    <div class="wrap">
+    <h3 mat-dialog-title>Chỉnh sửa thông tin sản phẩm</h3>
+    <div class="content">
+        <div mat-dialog-content class="form">
+            <form [formGroup]="updateForm">
+                <div class="group">
+                    <label for="name" class="label">Tên sản phẩm: </label>
+                    <input id="name" type="text" class="input" matInput formControlName="name"
+                        placeholder="Nhập tên sản phẩm" >
+                    <!-- <div *ngIf="userName.invalid && (userName.dirty || userName.touched)" class="alert alert-danger">
+                        <div *ngIf="userName.errors.required">
+                            Name is required.
+                        </div>
+                        <div *ngIf="userName.errors.minlength">
+                            Name must be at least 4 characters long.
+                        </div>
+                    </div> -->
+                </div>
+                    <div class="group">
+                        <label for="price" class="label">Giá: </label>
+                        <input id="price" type="text" class="input" matInput formControlName="price"
+                            placeholder="Nhập giá sản phẩm">
+                    </div>
+                    <div class="group">
+                        <label for="describe" class="label">Mô tả: </label>
+                        <input id="describe" type="text" class="input"  matInput
+                            formControlName="describe" placeholder="Nhập mô tả cho sản phẩm">
+                    </div>
+                    <div class="group">
+                        <label for="review" class="label">Đánh giá: </label>
+                        <select matNativeControl required class="text" formControlName="review">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                    <div class="group">
+                        <label for="url" class="label">Ảnh: </label>
+                        <input id="url" type="text" class="input" matInput placeholder="Chọn ảnh cho sản phẩm"
+                            formControlName="url">
+                    </div>
+                    <!-- <div class="group">
+                        <label for="component" class="label">Thành phần sản phẩm: </label>
+                        <input id="component" type="text" class="input" matInput formControlName="component"
+                            placeholder="Nhập thành phần của sản phẩm">
+                    </div> -->
+            </form>
+        </div>
+    </div>
+    <div mat-dialog-actions class="btn">
+        <div class="left" (click)="onClose()">Hủy</div>
+        <div class="right" (click)="onSubmit()">Cập nhật</div>
+    </div>
+</div>
+</div>

@@ -1,0 +1,43 @@
+<!-- <input type="checkbox" id="check"> -->
+<header flexLayout="column" fxLayoutAlign="space-between center">
+    <!-- <label for="check">
+        <mat-icon id="sidebar-btn">list</mat-icon>
+    </label> -->
+    <div class="left-area">
+        <span><img src="/assets/image/majorlogo.png" alt=""></span>
+    </div>
+    <div class="right-area">
+        <a routerLink="/" class="logout-btn">Trang chủ</a>
+        <a (click)="logout()" class="logout-btn">Đăng xuất</a>
+    </div>
+</header>
+<div flexLayout="row" fxFlex>
+    <div class="sidebar">
+        <div class="center">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQcbE6u36DvNqhRgUJtDR3MQDBcPkC3n83uXw&usqp=CAU"
+                alt="" class="profile-img">
+                <h5>{{role}} {{fullName}}</h5>
+        </div>
+        <a routerLink="management">
+            <mat-icon>assignment_ind</mat-icon><span>Quản lý nhân viên</span>
+        </a>
+        <a href="customerManagement">
+            <mat-icon>folder_shared</mat-icon><span>Quản lý khách hàng</span>
+        </a>
+        <a routerLink="cartManagement">
+            <mat-icon>shopping_cart</mat-icon><span>Quản lý giỏ hàng</span>
+        </a>
+        <a routerLink="productManagement">
+            <mat-icon>shopping_basket</mat-icon><span>Quản lý hàng hóa</span>
+        </a>
+        <a routerLink="discountManagement">
+            <mat-icon>trending_down</mat-icon><span>Quản lý giảm giá</span>
+        </a>
+        <a routerLink="statistics">
+            <mat-icon>equalizer</mat-icon><span>Thống kê</span>
+        </a>
+    </div>
+    <div class="content">
+        <router-outlet></router-outlet>
+    </div>
+</div>

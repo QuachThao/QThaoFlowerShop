@@ -1,0 +1,39 @@
+.popup-center{
+    padding: 24px;
+    background: #c0fab9;
+}
+.popup-center .icon mat-icon{
+    font-size: 70px;
+    color: #34f234;
+    margin-left: 90px;
+}
+.popup-center .title h3{
+    margin: 5px 0;
+    font-size: 25px;
+    font-weight: 500;
+}
+.popup-center .btn{
+    margin-top: 15px;
+    margin-left: 40px;
+}
+.popup-center .btn a{
+    text-decoration: none;
+    color: black;
+}
+.popup-center .btn button{
+    padding: 5px 5px;
+    color: black;
+    border: 2px solid #ee6f57;
+    font-size: 16px;
+    font-weight: 600;
+    outline: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 300ms ease-in-out;
+}
+.popup-center .btn button:hover{
+    background: #ee6f57;
+}
+.title {
+    text-align: center;
+}

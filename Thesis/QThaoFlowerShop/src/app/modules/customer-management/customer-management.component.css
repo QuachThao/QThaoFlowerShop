@@ -1,0 +1,65 @@
+.text-center h3 {
+  text-align: center;
+  margin: 10px 20px;
+  line-height: 50px;
+  font-size: 22px;
+  text-transform: uppercase;
+}
+.mat-elevation-z6 table {
+  width: 97%;
+  margin-left: 20px;
+  margin-right: 20px;
+  border: 0.5px solid #202225;
+}
+.mat-elevation-z6 table .header {
+  background: #dce0e7;
+}
+.mat-elevation-z6 table td .launch-btn {
+  margin-right: 8px;
+}
+.mat-elevation-z6 table td .delete-btn {
+  color: red;
+}
+.mat-elevation-z6 table tr:hover {
+  background: #f1f6f9;
+}
+.mat-elevation-z6 table th {
+  background: #14274e;
+  color: #fff;
+}
+mat-paginator {
+  margin-top: 15px;
+}
+.features {
+  margin-bottom: 15px;
+}
+
+.search {
+  max-width: 30%;
+  margin-left: 400px;
+  display: grid;
+  line-height: 20px;
+  grid-template-columns: 1fr 0.2fr 0.2fr;
+  border: 1px solid #14274e;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+.search input{
+    border: none;
+    padding-left: 20px;
+    line-height: 30px;
+}
+.search .grid2{
+  border-right: 1.5px solid#14274e;
+  border-left: 1.5px solid #14274e;
+}
+.search .grid2, .grid3{
+    text-align: center;
+    color: #ee6f57;
+    width: 46px;
+}
+.search .grid2:hover, 
+.search .grid3:hover{
+    background: #ee6f57;
+    color: #000;
+}

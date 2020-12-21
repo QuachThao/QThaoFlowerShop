@@ -1,0 +1,163 @@
+<div class="container">
+    <div class="left">
+
+        <div class="form-receiver">
+            <div class="title">
+                <table>
+                    <tr>
+                        <td>
+                            <h4>Đơn hàng được gửi đến (người nhận):</h4>
+                        </td>
+                        <td>
+                            <mat-icon>local_shipping</mat-icon>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <form [formGroup]="receiveForm">
+                <div class="group">
+                    <label for="fullName" class="label">Họ và tên: </label>
+                    <input id="fullName" type="text" class="input" matInput formControlName="fullName"
+                        placeholder="Vui lòng điền họ tên">
+                </div>
+                <!-- <div class="col alert alert-danger" role="alert" *ngIf="receiveForm.hasError('invalidusername', ['username']) &&
+                        receiveForm.get('username').touched">
+                    Invalid Username!
+                </div> -->
+                <div class="group">
+                    <label for="number" class="label">Số điện thoại: </label>
+                    <input id="number" type="text" class="input" matInput formControlName="phoneNumber"
+                        placeholder="Vui lòng điền số điện thoại">
+                </div>
+                <div class="group">
+                    <label for="address" class="label">Địa chỉ (cụ thể):</label>
+                    <textarea id="address" type="text" class="input" matInput formControlName="address"
+                        placeholder="Vui lòng điền địa chỉ. VD: số nhà, đường,...."></textarea>
+                </div>
+
+            </form>
+        </div>
+
+        <div class="form-sender">
+            <div class="title">
+                <table>
+                    <tr>
+                        <td>
+                            <h4>Thông tin của tôi (người gửi):</h4>
+                        </td>
+                        <td>
+                            <mat-icon>perm_identity</mat-icon>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <form [formGroup]="sendForm">
+                <div class="group">
+                    <label for="fullName" class="label">Họ và tên: </label>
+                    <input id="fullName" type="text" class="input" matInput formControlName="fullName"
+                        placeholder="Vui lòng điền họ tên">
+                </div>
+                <div class="group">
+                    <label for="number" class="label">Số điện thoại: </label>
+                    <input id="number" type="text" class="input" matInput formControlName="phoneNumber"
+                        placeholder="Vui lòng điền số điện thoại">
+                </div>
+                <div class="group">
+                    <label for="email" class="label">Email:</label>
+                    <textarea id="email" type="text" class="input" matInput formControlName="email"
+                        placeholder="Vui lòng điền địa chỉ email."></textarea>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <div class="right">
+        <div class="right-content">
+            <div class="title">
+                <h4>Đơn hàng <mat-icon>receipt</mat-icon>
+                </h4>
+            </div>
+            <table class="bill">
+                <tr>
+                    <td>THÔNG TIN ĐƠN HÀNG</td>
+                    <td><a routerLink="buyProduct">Chỉnh sửa</a></td>
+                </tr>
+                <tr>
+                    <td>Số lượng: </td>
+                    <td>{{state?.total}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Lời nhắn: </span>
+                        <span>{{state?.note}}</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Hướng dẫn: </span>
+                        <span>{{state?.guide}}</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Ngày giao hàng:</span>
+                        <span>{{state?.date | date:'short'}}</span>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <span>Giờ giao hàng:</span>
+                        <span>{{state?.time}}</span>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>Tổng cộng: </td>
+                    <td>{{state?.totalPrice}}</td>
+                </tr>
+
+            </table>
+        </div>
+        <div class="pay-method">
+            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" class="panel">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <mat-icon>local_florist</mat-icon>Hình thức thanh toán
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div (click)="onCreateOnline()" class="method">
+                    <span>Thanh toán trực tuyến</span>
+                </div>
+                <div (click)="onCreateOffline()" class="method">
+                <span>Thanh toán khi nhận hàng</span>
+                </div>
+            </mat-expansion-panel>
+        </div>
+
+        <div class="action-btn">
+            <button class="return-btn" routerLink="/buyProduct">
+                <table>
+                    <tr>
+                        <td>
+                            <mat-icon>navigate_before</mat-icon>
+                        </td>
+                        <td>Trở về</td>
+                    </tr>
+                </table>
+            </button>
+
+            <button class="pay-btn" routerLink="/payment">
+                <table>
+                    <tr>
+                        <td>Thanh toán</td>
+                        <td>
+                            <mat-icon>navigate_next</mat-icon>
+                        </td>
+                    </tr>
+                </table>
+            </button>
+        </div>
+    </div>
+</div>
+  

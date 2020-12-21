@@ -1,24 +1,32 @@
-import { NgModule } from '@angular/core';
+import { DialogPayOffComponent } from './modules/dialog-pay-off/dialog-pay-off.component';
+import { PrePaymentComponent } from './modules/pre-payment/pre-payment.component';
+import { CreateEmployeeComponent } from './modules/create-employee/create-employee.component';
+import { NgModule, Component } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { Routes, RouterModule } from '@angular/router';
 import { DefaultComponent } from './layouts/default/default.component';
 import { FullwidthComponent } from './layouts/fullwidth/fullwidth.component';
 import { FullwidthModule } from './layouts/fullwidth/fullwidth.module';
-import { BirthdayComponent } from './modules/birthday/birthday.component';
-import { CandleComponent } from './modules/candle/candle.component';
-import { CardComponent } from './modules/card/card.component';
-import { ChocolateComponent } from './modules/chocolate/chocolate.component';
-import { CongratulationComponent } from './modules/congratulation/congratulation.component';
+import { ManagerComponent } from './layouts/manager/manager.component';
+import { SubCategoryComponent } from './modules/sub-category/sub-category.component';
 import { DetailProductComponent } from './modules/detail-product/detail-product.component';
-import { FlowerVaseComponent } from './modules/flower-vase/flower-vase.component';
 import { HomeComponent } from './modules/home/home.component';
 import { LoginComponent } from './modules/login/login.component';
-import { OpeningComponent } from './modules/opening/opening.component';
 import { RegisterComponent } from './modules/register/register.component';
-import { RomanticComponent } from './modules/romantic/romantic.component';
-import { SorryComponent } from './modules/sorry/sorry.component';
-import { TeddyBearComponent } from './modules/teddy-bear/teddy-bear.component';
-import { WeddingComponent } from './modules/wedding/wedding.component';
+import { BuyProductComponent } from './modules/buy-product/buy-product.component';
+import { ManagementComponent } from './modules/management/management.component';
+import { ProductManagementComponent } from './modules/product-management/product-management.component';
+import { DiscountManagementComponent } from './modules/discount-management/discount-management.component';
+import { StatisticsComponent } from 'src/app/modules/statistics/statistics.component';
+import { EmployeeComponent } from 'src/app/modules/employee/employee.component';
+import { EmployeeLayoutComponent } from 'src/app/layouts/employee-layout/employee-layout.component';
+import { CartManagementComponent } from 'src/app/modules/cart-management/cart-management.component';
+import { CustomerManagementComponent } from 'src/app/modules/customer-management/customer-management.component';
+import { CustomerClassManagementComponent } from 'src/app/modules/customer-class-management/customer-class-management.component';
+import { PaymentComponent } from './modules/payment/payment.component';
+
+
+
 
 const routes: Routes = [
   {
@@ -29,44 +37,8 @@ const routes: Routes = [
         component: HomeComponent
       },
       {
-        path: 'birthday',
-        component: BirthdayComponent
-      },
-      {
-        path: 'congratulation',
-        component: CongratulationComponent
-      },
-      {
-        path: 'opening',
-        component: OpeningComponent
-      },
-      {
-        path: 'romantic',
-        component: RomanticComponent
-      },
-      {
-        path: 'sorry',
-        component: SorryComponent
-      },
-      {
-        path: 'card',
-        component: CardComponent
-      },
-      {
-        path: 'teddy_bear',
-        component: TeddyBearComponent
-      },
-      {
-        path: 'candle',
-        component: CandleComponent
-      },
-      {
-        path: 'chocolate',
-        component: ChocolateComponent
-      },
-      {
-        path: 'flower_vase',
-        component: FlowerVaseComponent
+        path: 'subCategory/:id',
+        component: SubCategoryComponent
       }
     ]
   },
@@ -76,27 +48,88 @@ const routes: Routes = [
       children: [{
         path: 'login',
         component: LoginComponent
-      }
-    ]
-  },
-  {
-    path: '',
-    component: FullwidthComponent,
-      children: [{
+      },
+      {
         path: 'register',
         component: RegisterComponent
+      },
+      {
+        path: 'detailProduct',
+        pathMatch: 'full',
+        component: DetailProductComponent
+      },
+      {
+        path: 'detailProduct/:id',
+        component: DetailProductComponent
+      },
+      {
+        path: 'buyProduct',
+        component: BuyProductComponent
+      },
+      {
+        path: 'prePayment',
+        component: PrePaymentComponent
+      },
+      {
+        path: 'payment',
+        component: PaymentComponent
       }
     ]
   },
   {
     path: '',
-    component: FullwidthComponent,
+    component: ManagerComponent,
       children: [{
-        path: 'detailProduct',
-        component: DetailProductComponent
+        path: 'management',
+        component: ManagementComponent
+      },
+      {
+        path: 'productManagement',
+        component: ProductManagementComponent
+      },
+      {
+        path: 'discountManagement',
+        component: DiscountManagementComponent
+      },
+      {
+        path: 'statistics',
+        component: StatisticsComponent
+      },
+      {
+        path: 'createEmployee',
+        component: CreateEmployeeComponent
+      },
+      {
+        path: 'cartManagement',
+        component: CartManagementComponent
+      },
+      {
+        path: 'customerManagement',
+        component: CustomerManagementComponent
       }
     ]
   }
+  // {
+  //   path: '',
+  //   component: EmployeeLayoutComponent,
+  //     children: [{
+  //       path: 'employee',
+  //       component: EmployeeComponent
+  //     },
+  //     {
+  //       path: 'cartManagement',
+  //       component: CartManagementComponent
+  //     },
+  //     {
+  //       path: 'customerManagement',
+  //       component: CustomerManagementComponent
+  //     },
+  //     {
+  //       path: 'customerClassManagement',
+  //       component: CustomerClassManagementComponent
+  //     }
+  //   ]
+  // }
 ];
 
 @NgModule({

@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="wrap">
+        <h3 mat-dialog-title>Chỉnh sửa thông tin nhân viên</h3>
+        <div class="content">
+            <div mat-dialog-content class="form">
+                <form [formGroup]="updateForm">
+                    <div class="group">
+                        <label for="fullName" class="label">Họ tên</label>
+                        <input id="fullName" type="fullName" class="input" matInput formControlName="fullName"
+                            placeholder="Enter your Fullname">
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Email</label>
+                        <input id="pass" type="text" class="input" matInput placeholder="abc@example.com"
+                            formControlName="email">
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Giới tính</label>
+                        <select matNativeControl required class="text" formControlName="gender">
+                            <option value="male">Nam</option>
+                            <option value="female">Nữ</option>
+                        </select>
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Số điện thoại</label>
+                        <input id="pass" type="text" class="input" matInput formControlName="phoneNumber"
+                            placeholder="Enter your Phonenumber">
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Địa chỉ</label>
+                        <input id="pass" type="text" class="input" matInput formControlName="address"
+                            placeholder="Enter your address">
+                    </div>
+                    <!-- <div class="group">
+            <input type="submit" class="button" value="Tạo">
+        </div>	 -->
+                </form>
+            </div>
+        </div>
+        <div mat-dialog-actions class="btn">
+            <div class="left" (click)="onClose()">Hủy</div>
+            <div class="right" (click)="onSubmit()">Cập nhật</div>
+        </div>
+    </div>
+</div>

@@ -9,9 +9,10 @@
         <mat-icon id="sidebar-btn">dehaze</mat-icon>
     </label> -->
     <div class="link" fxLayout="row" fxLayoutGap="20px">
-        <a routerLink="/" mat-button>Home</a>
-        <a routerLink="/footer-link">Contact us</a>
-        <a routerLink="/login">Register & Log in</a>
-        <a routerLink="/">Log out</a>
+        <a routerLink="/" mat-button>Trang chủ</a>
+        <a routerLink="/footer-link">Liên hệ</a>
+        <!-- <a routerLink="/register">Đăng ký</a> -->
+        <a routerLink="/login">Đăng nhập & Đăng ký</a>
+        <a (click)="logout()">Đăng xuất</a>
     </div>
 </header>

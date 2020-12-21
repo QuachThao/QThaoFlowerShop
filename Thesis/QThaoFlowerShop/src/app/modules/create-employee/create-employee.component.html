@@ -1,0 +1,64 @@
+<div class="container">
+    <div class="wrap">
+    <h3 mat-dialog-title>Thêm nhân viên mới</h3>
+    <div class="content">
+        <div mat-dialog-content class="form">
+            <form [formGroup]="createForm">
+                <div class="group">
+                    <label for="userName" class="label">Tên tài khoản: </label>
+                    <input id="userNane" type="text" class="input" matInput formControlName="userName"
+                        placeholder="Nhập tên tài khoản" >
+                    <!-- <div *ngIf="userName.invalid && (userName.dirty || userName.touched)" class="alert alert-danger">
+                        <div *ngIf="userName.errors.required">
+                            Name is required.
+                        </div>
+                        <div *ngIf="userName.errors.minlength">
+                            Name must be at least 4 characters long.
+                        </div>
+                    </div> -->
+                </div>
+                    <div class="group">
+                        <label for="fullName" class="label">Họ tên: </label>
+                        <input id="fullName" type="fullName" class="input" matInput formControlName="fullName"
+                            placeholder="Nhập họ tên của bạn">
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Mật khẩu: </label>
+                        <input id="pass" type="password" class="input" data-type="password" matInput
+                            formControlName="passWord" placeholder="Nhập mật khẩu của bạn"
+                            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,10}$">
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Email: </label>
+                        <input id="pass" type="text" class="input" matInput placeholder="abc@example.com"
+                            formControlName="email">
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Giới tính: </label>
+                        <select matNativeControl required class="text" formControlName="gender">
+                            <option value="male">Nam</option>
+                            <option value="female">Nữ</option>
+                        </select>
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Số điện thoại: </label>
+                        <input id="pass" type="text" class="input" matInput formControlName="phoneNumber"
+                            placeholder="Nhập số điện thoại của bạn">
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Địa chỉ: </label>
+                        <input id="pass" type="text" class="input" matInput formControlName="address"
+                            placeholder="Nhập địa chỉ của bạn">
+                    </div>
+                    <!-- <div class="group">
+            <input type="submit" class="button" value="Tạo">
+        </div>	 -->
+            </form>
+        </div>
+    </div>
+    <div mat-dialog-actions class="btn">
+        <div class="left" (click)="onClose()">Hủy</div>
+        <div class="right" (click)="onSubmit()">Thêm</div>
+    </div>
+</div>
+</div>

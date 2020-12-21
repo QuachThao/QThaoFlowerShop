@@ -1,0 +1,76 @@
+body{
+    text-align: center;
+}
+.content{
+    display: grid;
+    grid-template-columns: 2fr 1.5fr;
+    padding-top: 20px;
+    font-size: 17px;
+    font-weight: 400;
+    background: #f1f6f9;
+}
+.right{
+    padding-left: 15px;
+}
+.content h4{
+    text-transform: uppercase;
+    text-align: center;
+}
+.header h3{
+    text-align: center;
+    margin: 10px 20px;
+    line-height: 50px;
+    font-size: 22px;
+    text-transform: uppercase;
+    }
+.table table{
+    margin-left: 40px;
+    text-align: center;
+    border: 0.7px solid black;
+
+}
+.table table th{
+    background: #14274e;
+    color: #fff;
+}
+.left .table table th, td{
+    padding: 8px;
+}
+.table table tr:hover{
+    background: #c9d5e9;
+}
+.delete-btn mat-icon{
+    font-size: 25px;
+    color: red;
+}
+.action-btn{
+    margin-bottom: 20px;
+    margin-top: 15px;
+    font-size: 16px;
+}
+.action-btn button{
+    border: 0.5px solid  #f5e1de;
+    border-radius: 10px;
+    cursor: pointer;
+    background: #fff;
+    transition: 0.4s;
+}
+.action-btn button:hover{
+    background: #ee6f57;
+}
+.action-btn td{
+    padding: 0;
+}
+.action-btn .return-btn{
+    margin-right: 300px;
+}
+.shipment-details .form-field input,
+.shipment-details .form-field select,
+.shipment-details .form-field textarea
+{
+    border-radius:10px;
+    border: 0.3px solid #14274e;
+}
+.shipment-details .form-field1{
+    line-height: 30px;
+}

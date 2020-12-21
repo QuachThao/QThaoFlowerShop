@@ -1,0 +1,113 @@
+.container {
+  display: grid;
+  padding: 20px 30px;
+  grid-template-columns: 1fr 1fr;
+}
+mat-icon{
+font-size: 30px;
+}
+.left{
+    padding-left: 60px;
+    margin-top: 30px;
+    font-weight: 400;
+}
+.left td h4{
+    text-transform: uppercase;
+    text-align: center;
+    
+}
+.left .group textarea,
+.left .group input{
+	width:80%;
+	color:#000;
+    display:block;
+    margin: 5px 0;
+    line-height: 25px;
+}
+.left .form-receiver{
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 80%;
+  box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
+}
+.title{
+  background: #14274e;
+  color: #fff;
+}
+.form-sender{
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 80%;
+  margin-top: 30px;
+  box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
+}
+.left .group{
+padding: 5px 70px;
+font-size: 16px;
+font-weight: 400;
+}
+.right {
+  margin: 0;
+  font-weight: 400;
+}
+.right h4{
+  margin: 0;
+}
+.right .action-btn td{
+    padding: 0;
+}
+.right-content{
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 80%;
+  margin-top: 30px;
+  margin-bottom: 60px;
+  box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
+}
+.right-content .bill{
+padding: 5px 30px;
+}
+.action-btn {
+  margin-top: 100px;
+  font-size: 16px;
+}
+.action-btn button {
+  border: 0.5px solid #f3beb6;
+  border-radius: 10px;
+  cursor: pointer;
+  background: #fff;
+  transition: 0.4s;
+}
+.action-btn button:hover {
+  background: #ee6f57;
+}
+
+.action-btn .return-btn {
+  margin-right: 330px;
+}
+.right h4{
+    text-transform: uppercase;
+    text-align: center;
+}
+.right a{
+    text-decoration: none;
+    margin-left: 50px;
+}
+.right .bill td{
+    padding: 10px 10px;
+}
+.pay-method{
+  width: 60%;
+  line-height: 30px;
+  border: 1px solid black;
+  border-radius: 10px;
+  box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
+}
+.pay-method mat-icon{
+  padding-right: 5px;
+}
+.method:hover{
+  color: #ee6f57;
+  font-size: 18px;
+  font-weight: 500;
+}

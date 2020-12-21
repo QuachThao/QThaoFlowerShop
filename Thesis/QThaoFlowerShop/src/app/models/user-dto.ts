@@ -4,10 +4,10 @@ export class UserDto {
     public fullName: string;
     public email: string;
     public passWord: string;
+    public repeatPassword: string;
     public role: string;
     public gender: string;
     public address: string;
     public phoneNumber: string;
     public classId?: string;
-
 }

@@ -1,151 +1,113 @@
-
-  <div class="content">
-    <div class="left">
-      <img src="/assets/image/bestseller/1.jpg" alt="">
-    </div>
-    <div class="right">
-      <table class="table">
-        <tr>
-          <td><span class="title">Tên</span></td>
-        </tr>
-        <div class="hr"></div>
-        <tr>
-          <td><span class="title">Giá bán:</span></td>
-        </tr>
-        <div class="hr"></div>
-        <tr>
-          <td>
-            <span class="title">Số lượng:</span>
-            <div class="quantity">
-              <span>
-                <button class="btn-number" type="button" data-type="remove" data-field="quantity" disabled="disabled"
-                  (click)="remove()">
-                  <mat-icon class="icon-quantity">remove</mat-icon>
-                </button>
-              </span>
-              <input type="text" name="quantity" placeholder="1" min="1" max="10" [(ngModel)]="inputnumber">
-              <span>
-                <button class="btn-number" type="button" data-type="add" data-field="quantity" disabled="disabled"
-                  (click)="add()">
-                  <mat-icon class="icon-quantity">add</mat-icon>
-                </button>
-              </span>
-            </div>
-          </td>
-        </tr>
-        <div class="hr"></div>
-        <tr>
-          <td><span class="title">Quà tặng kèm</span></td>
-        </tr>
-        <tr>
-          <td class="slidershow">
-            <div class="slides">
-              <input type="radio" name="r" id="r1" checked>
-              <input type="radio" name="r" id="r2">
-              <input type="radio" name="r" id="r3">
-              <input type="radio" name="r" id="r4">
-              <input type="radio" name="r" id="r5">
-              <input type="radio" name="r" id="r6">
-              <input type="radio" name="r" id="r7">
-              <div class="slide s1">
-                <img src="/assets/image/banner/1.png" alt="">
-              </div>
-              <div class="slide">
-                <img src="/assets/image/banner/2.png" alt="">
-              </div>
-              <div class="slide">
-                <img src="/assets/image/banner/3.png" alt="">
-              </div>
-              <div class="slide">
-                <img src="/assets/image/banner/4.png" alt="">
-              </div>
-              <div class="slide">
-                <img src="/assets/image/banner/5.png" alt="">
-              </div>
-              <div class="slide">
-                <img src="/assets/image/banner/6.png" alt="">
-              </div>
-              <div class="slide">
-                <img src="/assets/image/banner/7.png" alt="">
-              </div>
-            </div>
-            <div class="navigation">
-              <label for="r1" class="bar"></label>
-              <label for="r2" class="bar"></label>
-              <label for="r3" class="bar"></label>
-              <label for="r4" class="bar"></label>
-              <label for="r5" class="bar"></label>
-              <label for="r6" class="bar"></label>
-              <label for="r7" class="bar"></label>
-            </div>
-          </td>
-        </tr>
-        <div class="hr"></div>
-        <tr>
-          <td>
-            <button class="btn-add-product">
-              <mat-icon>add_shopping_cart</mat-icon><a routerLink="">Thêm vào giỏ hàng</a>
-            </button>
-          </td>
-        </tr>
-        <div class="hr"></div>
-        <tr>
-          <td>
-            <span class="title">Mô tả</span>
-            <ul class="ul-1">
-              <li>Bó hoa là sự kết hợp giữa màu sắc hồng pastel trang nhã và thanh lịch.</li>
-              <li>Đây sẽ là món quà xinh xắn để dành tặng người bạn yêu thương.</li>
-              <li>Bó hoa Pink Moon Bouquet gồm có:</li>
-            </ul>
-            <ul class="ul-2">
-              <li>12 hoa hồng</li>
-              <li>Hoa cúc Tana</li>
-              <li>Lá và hoa khác</li>
-            </ul>
-            <p>* Hầu hết sản phẩm được làm thủ công nên sẽ có chút khác nhau so với ảnh trên website.</p>
-          </td>
-        </tr>
-        <div class="hr"></div>
-        <tr>
-          <td>
-            <span class="title">Đánh giá</span>
-            <div [formGroup]="formGroup">
-              <div class="example-container">
-                <mat-form-field appearance="fill">
-                  <span>Email</span>
-                  <input matInput placeholder="pat@example.com" [formControl]="emailField" required>
-                  <mat-error>Vui lòng điền email</mat-error>
-                </mat-form-field>
-              </div>
-              <div>
-                <mat-form-field appearance="fill">
-                  <span>Nhận xét</span>
-                  <textarea matInput></textarea>
-                </mat-form-field>
-              </div>
-              <!-- <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="formGroup.invalid">Submit
-                Feedback</button> -->
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <!-- <form class="example-form">
-              <mat-form-field class="example-full-width">
-                <mat-label>Email</mat-label>
-                <input type="email" matInput [formControl]="formGroup" [errorStateMatcher]="matcher"
-                       placeholder="Ex. pat@example.com">
-                <mat-hint>Errors appear instantly!</mat-hint>
-                <mat-error *ngIf="formGroup.hasError('email') && !formGroup.hasError('required')">
-                  Please enter a valid email address
-                </mat-error>
-                <mat-error *ngIf="formGroup.hasError('required')">
-                  Email is <strong>required</strong>
-                </mat-error>
-              </mat-form-field>
-            </form> -->
-          </td>
-        </tr>
-      </table>
-    </div>
+<div class="content">
+  <div class="left">
+    <img [src]="product?.url" alt="">
   </div>
+  <div class="right">
+    <table class="table">
+      <tr>
+        <td>
+          <span class="title">Tên:</span>
+          <span>{{product?.name}}</span>
+        </td>
+      </tr>
+      <div class="hr"></div>
+      <tr>
+        <td>
+          <span class="title">Giá bán:</span>
+          <span>{{product?.price| currency:"VND":"symbol"}}</span>
+        </td>
+      </tr>
+      <div class="hr"></div>
+      <tr>
+        <td>
+          <label for="quantity" class="title">Số lượng (1-10):</label>
+          <input type="number" id="quantity" [(ngModel)]="inputnumber" class="quantity" name="quantity" min="1" max="10"
+            value="1">
+        </td>
+      </tr>
+      <div class="hr"></div>
+      <tr>
+        <td>
+          <span class="title">Quà tặng kèm:</span>
+          <!-- <ngx-slick-carousel class="carousel" 
+        #slickModal="slick-carousel" 
+        [config]="{slidesToShow: 4, slidesToScroll: 4, autoplay: true}"
+        >
+        <div ngxSlickItem class="slide">
+          <img src="/assets/image/OtherGifts/1.jpg" alt="" width="100%">
+          <button>Mua</button>
+        </div>
+        <div ngxSlickItem class="slide">
+          <img src="https://placehold.it/50" alt="" width="100%">
+      </div>
+      <div ngxSlickItem class="slide">
+        <img src="assets/image/OtherGifts/3.jpg" alt="" width="100%">
+      </div>
+    </ngx-slick-carousel> -->
+        </td>
+      </tr>
+      <tr>
+        <td>
+        </td>
+      </tr>
+      <div class="hr"></div>
+      <tr>
+        <td>
+          <button class="btn-add-product" (click)="checkLogin()" (click)="addToCart()">
+            <mat-icon>add_shopping_cart</mat-icon>Thêm vào giỏ hàng
+          </button>
+        </td>
+      </tr>
+      <div class="hr"></div>
+      <tr>
+        <td>
+          <span class="title">Mô tả:</span>
+          <span>{{product?.describe}}</span>
+          <!-- <ul class="ul-1">
+        <li>Bó hoa là sự kết hợp giữa màu sắc hồng pastel trang nhã và thanh lịch.</li>
+        <li>Đây sẽ là món quà xinh xắn để dành tặng người bạn yêu thương.</li>
+        <li>Bó hoa Pink Moon Bouquet gồm có:</li>
+      </ul>
+      <ul class="ul-2">
+        <li>12 hoa hồng</li>
+        <li>Hoa cúc Tana</li>
+        <li>Lá và hoa khác</li>
+      </ul> -->
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <span class="title">Đánh giá:</span>
+          <span>{{product?.review}} sao</span>
+        </td>
+      </tr>
+      <tr>
+        <td>* Hầu hết sản phẩm được làm thủ công nên sẽ có chút khác nhau so với ảnh trên website.</td>
+      </tr>
+      <!-- <div class="hr"></div>
+      <tr>
+        <td class="feedback">
+          <span class="title">Đánh giá</span>
+          <div [formGroup]="formGroup">
+            <div class="example-container">
+              <mat-form-field appearance="fill">
+                <span>Email</span>
+                <input matInput placeholder="pat@example.com" [formControl]="emailField" required>
+                <mat-error>Vui lòng điền email</mat-error>
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field appearance="fill">
+                <span>Nhận xét</span>
+                <textarea matInput></textarea>
+              </mat-form-field>
+            </div>
+            <button class="btn-submit" (click)="onSubmit()">Gửi</button>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td> -->
+    </table>
+  </div>
+</div>

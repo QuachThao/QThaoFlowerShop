@@ -1,0 +1,40 @@
+<div class="title">
+  <!-- <img src="" alt="bo anh theo product " /> -->
+</div>
+<div>
+  <div>
+    <mat-grid-list cols="4" class="grid-list">
+      <mat-grid-tile *ngFor="let product of birthday">
+          <div class="cols1">
+              <div class="cols1-inner">
+                  <a routerLink="/detailProduct/{{ product.id }}">
+                      <img [src]="product.url" alt="">
+                  </a>
+              </div>
+              <div class="hr-inner"></div>
+              <div class="detail-content">
+                  <p>{{ product.name }}</p>
+                  <p>Price: {{ product.price| currency:"VND":"symbol" }} VND</p>
+              </div>
+          </div>
+      </mat-grid-tile>
+  </mat-grid-list>
+    <!-- <ng-container *ngFor="let entry of data">
+      <div>
+        <img [src]="entry.url" />
+        <span>Name: {{ entry.name }}</span>
+        <button>Buy now</button>
+      </div>
+    </ng-container> -->
+  </div>
+
+  <mat-paginator
+    class="paginator"
+    [length]="products.length"
+    [pageSize]="size"
+    [pageIndex]="page"
+    (page)="getData($event)"
+  >
+  </mat-paginator>
+</div>
+

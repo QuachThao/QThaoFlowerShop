@@ -1,79 +1,50 @@
-    <div class="register-form">
-        <h1 class="name">Register</h1>
-        <form [formGroup]="registerForm" class="content">
-            <label>Username</label>
-            <input name="userName" id="userName" class="text" 
-                        matInput
-                        formControlName="userName"
-                        [ngModel]="user.userName"
-                        placeholder="Enter your Username">
-            <label>Fullname</label>
-            <input name="fullName" id="fullName" class="text" 
-                        matInput
-                        formControlName="fullName"
-                        [ngModel]="user.fullName"
-                        placeholder="Enter your Fullname" />
-            <label>Email</label>
-            <input matInput placeholder="abc@example.com" [formControl]="email" required class="text">
-            <label>Password</label>
-            <input name="passWord" id="passWord" type="password" class="text" 
-                               matInput
-                               formControlName="passWord"
-                               [ngModel]="user.passWord"
-                               placeholder="Enter your Password" />
-            <label>Confirm password</label>
-            <input name="confirm_passWord" id="comfirm_passWord" type="password" class="text" 
-                               matInput
-                               formControlName="passWord"
-                               [ngModel]="user.passWord"
-                               placeholder="Enter your Password" />
-            
-            <label>Phonenumber</label>
-            <input name="phoneNumber" id="phoneNumber" class="text"
-                               matInput
-                               formControlName="phoneNumber"
-                               [ngModel]="user.phoneNumber"
-                               placeholder="Enter your Phonenumber" />
-            <label>Gender</label>
+<div class="sign-up-htm">
+    <form [formGroup]="registerForm">
+        <div class="group">
+            <label for="user" class="label">Username</label>
+            <input id="user" type="text" class="input" matInput formControlName="userName" [ngModel]="user.userName"
+                placeholder="Enter your Username">
+        </div>
+        <div class="group">
+            <label for="fullName" class="label">Fullname</label>
+            <input id="fullName" type="fullName" class="input" matInput formControlName="fullName"
+                [ngModel]="user.fullName" placeholder="Enter your Fullname">
+        </div>
+        <div class="group">
+            <label for="pass" class="label">Password</label>
+            <input id="pass" type="password" class="input" data-type="password" matInput formControlName="passWord"
+                [ngModel]="user.passWord" placeholder="Enter your Password"
+                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,10}$">
+        </div>
+        <div class="group">
+            <label for="pass" class="label">Repeat Password</label>
+            <input id="pass" type="password" class="input" data-type="password" matInput formControlName="passWord"
+                [ngModel]="user.passWord" placeholder="Enter your Password">
+        </div>
+        <div class="group">
+            <label for="pass" class="label">Email Address</label>
+            <input id="pass" type="text" class="input" matInput placeholder="abc@example.com"
+                [formControl]="user.email">
+        </div>
+        <div class="group">
+            <label for="pass" class="label">Gender</label>
             <select matNativeControl required class="text">
                 <option value="male">Male</option>
                 <option value="female">Female</option>
-              </select>
-            <label>Address</label>
-            <textarea   name="address" id="address"
-                        matInput
-                        formControlName="address"
-                        [ngModel]="user.address"
-                        placeholder="Enter your address">
-            </textarea>
-            
-                <div><button mat-button type="submit" class="btn">Register</button></div>
-                <div><button mat-button type="return" class="btn"><a routerLink="/">Back</a></button></div>
-            
-        </form>
-    </div>
-
-    
-    <!-- 
-                        
-
-                        
-                        
-
-                        
-                        
-                        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
-
-                        
-                        
-
-                        
-                        
-
-                        
-                        
-
-                        
-                        
-
-                         -->
+            </select>
+        </div>
+        <div class="group">
+            <label for="pass" class="label">Phone Number</label>
+            <input id="pass" type="text" class="input" matInput formControlName="phoneNumber"
+                [ngModel]="user.phoneNumber" placeholder="Enter your Phonenumber">
+        </div>
+        <div class="group">
+            <label for="pass" class="label">Address</label>
+            <input id="pass" type="text" class="input" matInput formControlName="address" [ngModel]="user.address"
+                placeholder="Enter your address">
+        </div>
+        <div class="group">
+            <input type="submit" class="button" value="Register">
+        </div>
+    </form>
+</div>

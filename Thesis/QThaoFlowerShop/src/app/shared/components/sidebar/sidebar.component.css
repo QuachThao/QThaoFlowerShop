@@ -1,5 +1,5 @@
 :host{
-    background-color:  #394867 ;
+    background-color:  #394867;
     margin: 0;
     padding: 0;
     user-select: none;
@@ -36,7 +36,7 @@
 .header span{
     line-height: 70px;
     margin-left: 10px;
-    font-size: 22px;
+    font-size: 20px;
 }
 .header{
     padding: 0;
