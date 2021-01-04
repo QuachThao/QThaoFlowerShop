@@ -1,4 +1,10 @@
-.text-center h3{
+.container h3{
+    text-align: center;
+    text-transform: uppercase;
+}
+
+
+/* .text-center h3{
 text-align: center;
 margin: 10px 20px;
 line-height: 50px;
@@ -61,4 +67,4 @@ margin-bottom: 15px;
 .search input{
     border: none;
     padding-left: 10px;
-}
+} */

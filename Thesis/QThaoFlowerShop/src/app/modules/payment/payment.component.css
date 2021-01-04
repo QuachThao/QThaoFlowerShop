@@ -1,0 +1,51 @@
+.content {
+  width: 40%;
+  font-family: "Josefin Sans", sans-serif;
+  font-family: "Mukta", sans-serif;
+  font-family: "Signika", sans-serif;
+  border: 0.5px solid #14274e;
+  margin: 20px 100px 20px 380px;
+  padding: 10px 10px;
+  box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+.title {
+  text-align: center;
+  text-transform: uppercase;
+  background: #14274e;
+  color: #fff;
+  text-transform: uppercase;
+  font-family: "Courgette", cursive;
+  font-family: "Josefin Sans", sans-serif;
+  font-family: "Mukta", sans-serif;
+  font-family: "Signika", sans-serif;
+}
+.bill td {
+  padding: 5px 5px;
+}
+.bill a {
+  text-decoration: none;
+  /* margin-left: 100px; */
+}
+.label{
+  margin-right: 8px;
+}
+.bill-content{
+  color: #234ea3;
+}
+.pay-method {
+  width: 50%;
+  line-height: 30px;
+  border: 0.5px solid #14274e;
+  border-radius: 10px;
+}
+.method:hover {
+  color: #ee6f57;
+  font-weight: 500;
+}
+.pay-method mat-icon{
+    padding-right: 5px;
+}
+mat-expansion-panel-header{
+    padding: 0 5px;
+}

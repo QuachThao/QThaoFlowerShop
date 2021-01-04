@@ -1,19 +1,9 @@
 <div class="container">
   <div class="header">
-    <h3>Giỏ hàng</h3>
-    <div class="features">
-      <span class="search">
-        <input nz-input placeholder="Điền thông tin cần tìm kiếm" aria-label="Number" matInput
-          [formControl]="myControl">
-        <button>
-          <mat-icon>search</mat-icon>
-        </button>
-      </span>
-    </div>
+    <h3>Giỏ hàng của {{fullname}}</h3>
   </div>
   <div class="content">
     <div class="left">
-      <h4 class="left-title">Tổng số sản phẩm</h4>
       <div class="table">
         <table mat-table [dataSource]="dataSource">
           <ng-container matColumnDef="position">
@@ -65,77 +55,26 @@
       [pageSize]="size" [pageIndex]="page"></mat-paginator> -->
       </div>
     </div>
-    <div class="right">
-      <h4 class="right-title">Thông tin đơn hàng</h4>
-      <div class="shipment-details">
+    <div class="action-btn">
+      <button class="return-btn"  routerLink="/detailProduct">
         <table>
           <tr>
-            <td>Vui lòng chọn ngày giao hàng:</td>
-            <td class="form-field">
-              <mat-form-field class="form-field1">
-                <input matInput [matDatepicker]="picker" [(ngModel)]="date">
-                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
-              </mat-form-field>
-            </td>
-          </tr>
-
-          <tr>
-            <td>Vui lòng chọn giờ giao hàng:</td>
-            <td class="form-field">
-              <mat-form-field>
-                <select matNativeControl required [(ngModel)]="time" aria-placeholder="9h-12h">
-                  <option value="9h-12h">9h-12h</option>
-                  <option value="13h-15h">13h-15h</option>
-                  <option value="14h-17h">14h-17h</option>
-                </select>
-              </mat-form-field>
-            </td>
-          </tr>
-
-          <tr>
-            <td>Lời nhắn đến người nhận (nếu có):</td>
-            <td class="form-field">
-              <mat-form-field>
-                <textarea matInput [(ngModel)]="note"></textarea>
-              </mat-form-field>
-            </td>
-          </tr>
-
-          <tr>
-            <td>Hướng dẫn đặc biệt (nếu có):</td>
-            <td class="form-field">
-              <mat-form-field>
-                <textarea matInput [(ngModel)]="guide"></textarea>
-              </mat-form-field>
-            </td>
+            <td><mat-icon>navigate_before</mat-icon></td>
+            <td>Trở về</td>
           </tr>
         </table>
-        <div class="form-field">
-          <input id="check" type="checkbox" class="check" checked>
-          <label for="check"><span class="icon"></span> Ẩn danh người gửi</label>
-        </div>
-      </div>
-      <div class="action-btn">
-        <button class="return-btn"  routerLink="/detailProduct">
-          <table>
-            <tr>
-              <td><mat-icon>navigate_before</mat-icon></td>
-              <td>Trở về</td>
-            </tr>
-          </table>
-        </button>
+      </button>
 
-        <button class="pay-btn" routerLink="/prePayment" (click)="navigateWithState()">
+      <button class="pay-btn">
           <table>
-            <tr>
-              <td>Thanh toán</td>
-              <td><mat-icon>navigate_next</mat-icon></td>
-            </tr>
+              <tr>
+                  <td (click)="navigateWithState()">Tiếp theo</td>
+                  <td>
+                      <mat-icon>navigate_next</mat-icon>
+                  </td>
+              </tr>
           </table>
-        </button>
-        <!-- <button routerLimh="/detailProduct" class="return-btn"><mat-icon>navigate_before</mat-icon>Trở về</button> -->
-      </div>
+      </button>
     </div>
   </div>
 </div>

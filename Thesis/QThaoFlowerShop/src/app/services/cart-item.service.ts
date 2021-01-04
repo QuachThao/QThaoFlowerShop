@@ -24,5 +24,8 @@ export class CartItemService {
   remove(id: any): Observable<any> {
     return this.http.delete<any>(environment.SERVER_URL + '/cartitem/' + id);
   }
+  clear(id: any): Observable<any> {
+    return this.http.delete<any>(environment.SERVER_URL + '/cartitem/clear/' + id);
+  }
 
 }

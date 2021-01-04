@@ -43,7 +43,7 @@
         <div class="search">
             <div class="grid1">
                 <input nz-input placeholder="Nhập thông tin bạn cần tìm." aria-label="Number" matInput
-                [formControl]="myControl" [(ngModel)]="searchText">
+                [formControl]="myControl" [(ngModel)]="searchText" name="searchKey">
             </div>
             <div class="grid2">
                 <span (click)="search()"><mat-icon>search</mat-icon></span>

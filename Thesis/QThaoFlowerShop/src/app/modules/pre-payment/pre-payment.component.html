@@ -1,4 +1,155 @@
 <div class="container">
+    <div class="content">
+        <div class="form-sender">
+            <div class="title">
+                <table>
+                    <tr>
+                        <td>
+                            Thông tin của tôi (người gửi)
+                        </td>
+                        <td>
+                            <mat-icon>perm_identity</mat-icon>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <form>
+                <div class="group">
+                    <label for="fullName" class="label">Họ và tên: </label>
+                    <input id="fullName" type="text" class="input" matInput [(ngModel)]="fullNameSender" name="fullNameSender"
+                        placeholder="Vui lòng điền họ tên">
+                </div>
+                <div class="group">
+                    <label for="number" class="label">Số điện thoại: </label>
+                    <input id="number" type="text" class="input" matInput [(ngModel)]="phoneSender" name="phoneSender"
+                        placeholder="Vui lòng điền số điện thoại" >
+                </div>
+                <div class="group">
+                    <label for="email" class="label">Email:</label>
+                    <input id="email" type="text" class="input" matInput [(ngModel)]="emailSender" name="emailSender"
+                        placeholder="Vui lòng điền địa chỉ email." >
+                </div>
+
+            </form>
+        </div>
+
+        <div class="form-receiver">
+            <div class="title">
+                <table>
+                    <tr>
+                        <td>
+                            Đơn hàng được gửi đến (người nhận)
+                        </td>
+                        <td>
+                            <mat-icon>local_shipping</mat-icon>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <form>
+                <div class="group">
+                    <label for="fullName" class="label">Họ và tên: </label>
+                    <input id="fullName" type="text" class="input" matInput [(ngModel)]="fullNameReceiver" name="fullNameReceiver"
+                        placeholder="Vui lòng điền họ tên" [required]="true">
+                        <!-- <mat-error *ngIf="sendForm.get('fullNameReceiver').invalid">{{getErrorFullname()}}</mat-error> -->
+                </div>
+                <div class="group">
+                    <label for="number" class="label">Số điện thoại: </label>
+                    <input id="number" type="text" class="input" matInput [(ngModel)]="phoneReceiver" name="phoneReceiver"
+                        placeholder="Vui lòng điền số điện thoại" [required]="true">
+                </div>
+                <div class="group">
+                    <label for="address" class="label">Địa chỉ (cụ thể):</label>
+                    <input id="address" type="text" class="input" matInput [(ngModel)]="adReceiver" name="adReceiver"
+                        placeholder="Vui lòng điền địa chỉ. VD: số nhà, đường,...." [required]="true">
+                </div>
+
+            </form>
+        </div>
+        <div class="infor-bill">
+            <div class="title">
+                <table>
+                    <tr>
+                        <td>
+                            thông tin đơn hàng
+                        </td>
+                        <td>
+                            <mat-icon>receipt</mat-icon>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="shipment-details">
+              <table>
+                <tr>
+                  <td>Vui lòng chọn ngày giao hàng:</td>
+                  <td class="form-field">
+                    <mat-form-field class="form-field1">
+                      <input matInput [matDatepicker]="picker" [(ngModel)]="date" [required]="true">
+                      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                      <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                  </td>
+                </tr>
+        
+                <tr>
+                  <td>Vui lòng chọn giờ giao hàng:</td>
+                  <td class="form-field">
+                    <mat-form-field>
+                      <select matNativeControl required [(ngModel)]="time" aria-placeholder="9h-12h" [required]="true">
+                        <option value="9h-12h">9h-12h</option>
+                        <option value="13h-15h">13h-15h</option>
+                        <option value="14h-17h">14h-17h</option>
+                      </select>
+                    </mat-form-field>
+                  </td>
+                </tr>
+        
+                <tr>
+                  <td>Lời nhắn đến người nhận (nếu có):</td>
+                  <td class="form-field">
+                    <mat-form-field>
+                      <input matInput [(ngModel)]="note">
+                    </mat-form-field>
+                  </td>
+                </tr>
+        
+                <tr>
+                  <td>Hướng dẫn đặc biệt (nếu có):</td>
+                  <td class="form-field">
+                    <mat-form-field>
+                      <input matInput [(ngModel)]="guide">
+                    </mat-form-field>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class="action-btn">
+            <button class="return-btn"  routerLink="/buyProduct">
+              <table>
+                <tr>
+                  <td><mat-icon>navigate_before</mat-icon></td>
+                  <td>Trở về</td>
+                </tr>
+              </table>
+            </button>
+      
+            <button class="pay-btn">
+                <table>
+                    <tr>
+                        <td (click)="navigateWithState()">Tiếp theo</td>
+                        <td>
+                            <mat-icon>navigate_next</mat-icon>
+                        </td>
+                    </tr>
+                </table>
+            </button>
+          </div>
+    </div>
+</div>
+
+<!-- <div class="container">
     <div class="left">
 
         <div class="form-receiver">
@@ -14,24 +165,20 @@
                     </tr>
                 </table>
             </div>
-            <form [formGroup]="receiveForm">
+            <form>
                 <div class="group">
                     <label for="fullName" class="label">Họ và tên: </label>
-                    <input id="fullName" type="text" class="input" matInput formControlName="fullName"
-                        placeholder="Vui lòng điền họ tên">
+                    <input id="fullName" type="text" class="input" matInput [(ngModel)]="fullNameReceiver" name="fullNameReceiver"
+                        placeholder="Vui lòng điền họ tên" >
                 </div>
-                <!-- <div class="col alert alert-danger" role="alert" *ngIf="receiveForm.hasError('invalidusername', ['username']) &&
-                        receiveForm.get('username').touched">
-                    Invalid Username!
-                </div> -->
                 <div class="group">
                     <label for="number" class="label">Số điện thoại: </label>
-                    <input id="number" type="text" class="input" matInput formControlName="phoneNumber"
+                    <input id="number" type="text" class="input" matInput [(ngModel)]="phoneReceiver" name="phoneReceiver"
                         placeholder="Vui lòng điền số điện thoại">
                 </div>
                 <div class="group">
                     <label for="address" class="label">Địa chỉ (cụ thể):</label>
-                    <textarea id="address" type="text" class="input" matInput formControlName="address"
+                    <textarea id="address" type="text" class="input" matInput [(ngModel)]="adReceiver" name="adReceiver"
                         placeholder="Vui lòng điền địa chỉ. VD: số nhà, đường,...."></textarea>
                 </div>
 
@@ -51,20 +198,20 @@
                     </tr>
                 </table>
             </div>
-            <form [formGroup]="sendForm">
+            <form>
                 <div class="group">
                     <label for="fullName" class="label">Họ và tên: </label>
-                    <input id="fullName" type="text" class="input" matInput formControlName="fullName"
+                    <input id="fullName" type="text" class="input" matInput [(ngModel)]="fullNameSender" name="fullNameSender"
                         placeholder="Vui lòng điền họ tên">
                 </div>
                 <div class="group">
                     <label for="number" class="label">Số điện thoại: </label>
-                    <input id="number" type="text" class="input" matInput formControlName="phoneNumber"
+                    <input id="number" type="text" class="input" matInput [(ngModel)]="phoneSender" name="phoneSender"
                         placeholder="Vui lòng điền số điện thoại">
                 </div>
                 <div class="group">
                     <label for="email" class="label">Email:</label>
-                    <textarea id="email" type="text" class="input" matInput formControlName="email"
+                    <textarea id="email" type="text" class="input" matInput [(ngModel)]="emailSender" name="emailSender"
                         placeholder="Vui lòng điền địa chỉ email."></textarea>
                 </div>
 
@@ -84,7 +231,7 @@
                 </tr>
                 <tr>
                     <td>Số lượng: </td>
-                    <td>{{state?.total}}</td>
+                    <td>{{state?.quantity}}</td>
                 </tr>
                 <tr>
                     <td>
@@ -129,7 +276,7 @@
                 <div (click)="onCreateOnline()" class="method">
                     <span>Thanh toán trực tuyến</span>
                 </div>
-                <div (click)="onCreateOffline()" class="method">
+                <div (click)="onCreateOffline()"  (click)="addToBill()" class="method">
                 <span>Thanh toán khi nhận hàng</span>
                 </div>
             </mat-expansion-panel>
@@ -146,18 +293,80 @@
                     </tr>
                 </table>
             </button>
-
-            <button class="pay-btn" routerLink="/payment">
-                <table>
-                    <tr>
-                        <td>Thanh toán</td>
-                        <td>
-                            <mat-icon>navigate_next</mat-icon>
-                        </td>
-                    </tr>
-                </table>
-            </button>
         </div>
     </div>
 </div>
   
+<div class="right">
+    <h4 class="right-title">Thông tin đơn hàng</h4>
+    <div class="shipment-details">
+      <table>
+        <tr>
+          <td>Vui lòng chọn ngày giao hàng:</td>
+          <td class="form-field">
+            <mat-form-field class="form-field1">
+              <input matInput [matDatepicker]="picker" [(ngModel)]="date">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Vui lòng chọn giờ giao hàng:</td>
+          <td class="form-field">
+            <mat-form-field>
+              <select matNativeControl required [(ngModel)]="time" aria-placeholder="9h-12h">
+                <option value="9h-12h">9h-12h</option>
+                <option value="13h-15h">13h-15h</option>
+                <option value="14h-17h">14h-17h</option>
+              </select>
+            </mat-form-field>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Lời nhắn đến người nhận (nếu có):</td>
+          <td class="form-field">
+            <mat-form-field>
+              <textarea matInput [(ngModel)]="note"></textarea>
+            </mat-form-field>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Hướng dẫn đặc biệt (nếu có):</td>
+          <td class="form-field">
+            <mat-form-field>
+              <textarea matInput [(ngModel)]="guide"></textarea>
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+      <div class="form-field">
+        <input id="check" type="checkbox" class="check" checked>
+        <label for="check"><span class="icon"></span> Ẩn danh người gửi</label>
+      </div>
+    </div>
+    <div class="action-btn">
+      <button class="return-btn"  routerLink="/detailProduct">
+        <table>
+          <tr>
+            <td><mat-icon>navigate_before</mat-icon></td>
+            <td>Trở về</td>
+          </tr>
+        </table>
+      </button>
+
+      <button class="pay-btn" routerLink="/prePayment" >
+          <table>
+              <tr>
+                  <td>Tiếp theo</td>
+                  <td>
+                      <mat-icon>navigate_next</mat-icon>
+                  </td>
+              </tr>
+          </table>
+      </button>
+    </div>
+  </div> -->

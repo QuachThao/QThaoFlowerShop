@@ -4,11 +4,10 @@
     </div>
 <div class="content-online">
     <p>Vui lòng nhập số tài khoản: </p>
-    <input nz-input placeholder="1234567890" aria-label="Number" matInput
-    [formControl]="myControl" >
+    <span class="input"><app-stripe></app-stripe></span>
 </div>
 <div class="btn">
-    <div class="left" (click)="addToBill()">Thanh toán</div>
+    <div class="left" (click)="addToBill()" (click)="onCreate()" (click)="onDismiss()">Thanh toán</div>
    <div class="right"  (click)="onDismiss()">Đóng</div>
 </div>
 </div>

@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="wrap">
+        <h3 mat-dialog-title>Đổi mật khẩu</h3>
+        <div class="content">
+            <div mat-dialog-content class="form">
+                <form [formGroup]="addsForm" ngNativeValidate>
+                    <div class="group">
+                        <label for="oldPass" class="label">Mật khẩu cũ</label>
+                        <input id="oldPass" type="password" class="input" matInput formControlName="oldPass"
+                            placeholder="Nhập mật khẩu cũ" name="oldPass" [required]="true">
+                    </div>
+                    <div class="group">
+                        <label for="newPass" class="label">Mật khẩu mới</label>
+                        <input id="newPass" type="password" class="input" matInput formControlName="newPass"
+                            placeholder="Nhập mật khẩu mới" name="newPass" [required]="true">
+                    </div>
+                    <div class="group">
+                        <label for="reNewPass" class="label">Nhập lại mật khẩu mới</label>
+                        <input id="reNewPass" type="password" class="input" matInput formControlName="reNewPass"
+                            placeholder="Nhập lại mật khẩu mới" name="reNewPass" [required]="true">
+                    </div>
+                    
+                </form>
+            </div>
+        </div>
+        <div mat-dialog-actions class="btn">
+            <div class="left" (click)="onClose()">Hủy</div>
+            <div class="right" (click)="onSubmit()">Cập nhật</div>
+        </div>
+    </div>
+</div>

@@ -15,27 +15,45 @@ export class BillService {
   }
   getChart(): Observable<BillDto[]> {
     return this.http.get<BillDto[]>(
-      environment.SERVER_URL + '/bill/chart/' + 2020
+      environment.SERVER_URL + '/bill/chart/' + 2021
+    );
+  }
+  sellingAmount(): Observable<BillDto[]> {
+    return this.http.get<BillDto[]>(
+      environment.SERVER_URL + '/bill/selling-amount/' + 2021
     );
   }
   Save(
-    productId: any,
     accountId: any,
-    quantity: any,
-    note: any,
     guide: any,
+    note: any,
+    productId: any,
+    quantity: any,
     timeDelivery: any,
-    total: any
+    total: any,
+    fullNameSender: any,
+    phoneSender: any,
+    emailSender: any,
+    fullNameReceiver: any,
+    phoneReceiver: any,
+    adReceiver: any
   ): Observable<BillDto> {
     const body = {
-      productId: productId,
       accountId: accountId,
-      quantity: quantity,
-      note: note,
       guide: guide,
+      note: note,
+      productId: productId,
+      quantity: quantity,
       timeDelivery: timeDelivery,
       total: total,
+      fullNameSender: fullNameSender,
+      phoneSender: phoneSender,
+      emailSender: emailSender,
+      fullNameReceiver: fullNameReceiver,
+      phoneReceiver: phoneReceiver,
+      adReceiver: adReceiver,
     };
+    console.log(body);
     return this.http.post<BillDto>(environment.SERVER_URL + '/bill/save', body);
   }
 }

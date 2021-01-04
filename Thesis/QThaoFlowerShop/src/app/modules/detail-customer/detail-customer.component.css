@@ -1,3 +1,9 @@
+body{
+    font-family: "Courgette", cursive;
+  font-family: "Josefin Sans", sans-serif;
+  font-family: "Mukta", sans-serif;
+  font-family: "Signika", sans-serif;
+}
 .container{
     background:darksalmon ;
 }

@@ -1,3 +1,4 @@
+import { ChangePassComponent } from './../change-pass/change-pass.component';
 import { DetailCustomerComponent } from './../detail-customer/detail-customer.component';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
@@ -45,6 +46,11 @@ onEdit(data: UserDto): void{
   const dialogRef = this.dialog.open(DetailCustomerComponent, {
     width: '400px',
     data: data,
+  });
+}
+onupdate(): void{
+  const dialogRef = this.dialog.open(ChangePassComponent, {
+    width: '400px',
   });
 }
 }

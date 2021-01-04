@@ -1,0 +1,27 @@
+.container {
+  width: 90%;
+  z-index: 99999;
+  background: #c7d6f5;
+  border: 0.5px solid #14274e;
+}
+.mat-elevation-z6 table {
+  width: 70%;
+  margin: 0 auto;
+  border: 0.5px solid #14274e;
+}
+.mat-elevation-z6 table td .launch-btn {
+  margin-left: 10px;
+}
+.mat-elevation-z6 table th {
+  background: #14274e;
+  color: #fff;
+}
+.footer {
+  font-size: 18px;
+  line-height: 25px;
+  text-align: center;
+  text-transform: uppercase;
+}
+.footer:hover {
+  background: #ee6f57;
+}

@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="wrap">
+        <h3 mat-dialog-title>Thêm sản loại phẩm mới</h3>
+        <div class="content">
+            <div mat-dialog-content class="form">
+                <form [formGroup]="addsForm" ngNativeValidate>
+                    <div class="group">
+                        <label for="name" class="label">Tên loại sản phẩm </label>
+                        <input id="name" type="text" class="input" matInput formControlName="name"
+                            placeholder="Nhập tên loại sản phẩm" name="nameCate" [required]="true">
+                    </div>
+                    <div class="group">
+                        <label for="displayName" class="label">Tên hiển thị </label>
+                        <input id="displayName" type="text" class="input" matInput formControlName="displayName"
+                            placeholder="Nhập tên hiển thị cho loại sản phẩm" name="displayName" [required]="true">
+                    </div>
+                    <div class="group">
+                        <label for="type" class="label">Danh mục loại sản phẩm</label>
+                        <select matNativeControl class="text" formControlName="type" name="typeCate" [required]="true">
+                            <option value="tyeFlower">Loại hoa</option>
+                            <option value="theme">Chủ đề</option>
+                            <option value="elegantFlowerBasket">Giỏ hoa thanh lịch</option>
+                            <option value="otherGifts">Món quà khác</option>
+                            <option value="lovelyBoquet">Bó hoa yêu thương</option>
+                            <option value="bestseller">Bán chạy nhất</option>
+                            <option value="ornamentalPots">Cây để bàn</option>
+                            <option value="favoriteFlowerShelf">Kệ hoa yêu thích</option>
+                            <option value="uniqueFlowerBasket">Giỏ hoa độc đáo</option>
+                        </select>
+                    </div>
+                    
+                    <!-- <div class="group">
+                        <label for="type" class="label">Danh mục loại sản phẩm </label>
+                        <select matNativeControl required class="text" formControlName="type" name="typeCate" [required]="true">
+                            <option value="{{cate.id}}" *ngFor="let cate of category">{{ cate?.type }}</option>
+                        </select>
+                    </div> -->
+                </form>
+            </div>
+        </div>
+        <div mat-dialog-actions class="btn">
+            <div class="left" (click)="onClose()">Hủy</div>
+            <div class="right" (click)="onSubmit()">Thêm</div>
+        </div>
+    </div>
+</div>

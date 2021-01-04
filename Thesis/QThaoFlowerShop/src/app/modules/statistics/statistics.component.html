@@ -1,6 +1,6 @@
 <mat-tab-group>
     <mat-tab label="Biểu đồ doanh thu"> Biểu đồ doanh thu 
-      <div class="chart">
+      <div class="lineChart">
         <canvas baseChart width="100" height="100"
           [datasets]="lineChartData"
           [labels]="lineChartLabels"
@@ -12,6 +12,33 @@
         </canvas>
       </div>
     </mat-tab>
-    <mat-tab label="Biểu đồ account(số người đăng ký)"> Biểu đồ account(số người đăng ký)</mat-tab>
-    <mat-tab label="Biểu đồ số lượng đơn hàng"> Biểu đồ số lượng đơn hàng </mat-tab>
+    <mat-tab label="Biểu đồ số lượng đơn hàng"> Biểu đồ số lượng đơn hàng
+      <div>
+        <div>
+          <div style="display: block" class="barChart">
+            <canvas baseChart
+              [datasets]="barChartData"
+              [labels]="barChartLabels"
+              [options]="barChartOptions"
+              [plugins]="barChartPlugins"
+              [legend]="barChartLegend"
+              [chartType]="barChartType">
+            </canvas>
+          </div>
+          <!-- <button mat-button mat-raised-button color="primary" (click)="randomize()">Update</button> -->
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="Biểu đồ account(số người đăng ký)"> Biểu đồ số người đăng ký 
+      <!-- <div style="display: block;" class="">
+        <canvas baseChart 
+          [data]="pieChartData" 
+          [labels]="pieChartLabels" 
+          [chartType]="pieChartType"
+          [options]="pieChartOptions"
+          [plugins]="pieChartPlugins"
+          [legend]="pieChartLegend">
+        </canvas>
+      </div> -->
+    </mat-tab>
   </mat-tab-group>

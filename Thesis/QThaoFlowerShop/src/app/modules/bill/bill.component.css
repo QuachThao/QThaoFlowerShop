@@ -1,0 +1,25 @@
+.title{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    text-transform: uppercase;
+}
+.mat-elevation-z6 table {
+  width: 70%;
+  margin: 0 auto;
+  border: 0.5px solid #14274e;
+}
+.mat-elevation-z6 table td .launch-btn {
+  margin-left: 10px;
+}
+.mat-elevation-z6 table th {
+  background: #14274e;
+  color: #fff;
+  text-align: center;
+}
+.mat-elevation-z6 table td{
+    text-align: center;
+}
+.mat-elevation-z6 table tr:hover {
+  background: #f1f6f9;
+}

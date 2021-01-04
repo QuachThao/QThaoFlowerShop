@@ -7,7 +7,7 @@
         <div class="hr"></div>
         <div class="expansion">
             <mat-accordion class="accordion">
-                <div class="header" routerLink="/buyProduct"><span class="card"><mat-icon class="icon">local_grocery_store</mat-icon>Giỏ hàng</span></div>
+                <div class="header" routerLink="/buyProduct"><span class="card" (click)="checkLogin()"><mat-icon class="icon">local_grocery_store</mat-icon>Giỏ hàng</span></div>
                 <mat-expansion-panel (opened)="panelOpenState = true"
                 (closed)="panelOpenState = false" class="panel">
                 <mat-expansion-panel-header class="header">
@@ -36,7 +36,7 @@
                 (closed)="panelOpenState = false" class="panel">
                     <mat-expansion-panel-header class="header">
                         <mat-panel-title class="title">
-                           <span><mat-icon class="icon">queue</mat-icon>Sản phẩm khác</span>
+                           <span><mat-icon class="icon">queue</mat-icon>Sản phẩm liên quan</span>
                         </mat-panel-title>
                     </mat-expansion-panel-header>
                     <div class="link"><a routerLink="/card">Thiệp</a></div>

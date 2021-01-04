@@ -2,6 +2,7 @@ import { AccountService } from 'src/app/services/account.service';
 import { Component, OnInit } from '@angular/core';
 import { CategoryDto } from 'src/app/models/category-dto';
 import { CategoryService } from 'src/app/services/category.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
@@ -17,9 +18,17 @@ export class SidebarComponent implements OnInit {
   role: string ='';
   constructor(
     private categoryService: CategoryService,
-    private accountService: AccountService
+    private accountService: AccountService,
+    private router: Router
   ) {}
-
+  checkLogin(): void{
+    if (!this.accountService.isLogin()){
+    this.router.navigate(['/login']);
+    }
+    else {
+      this.router.navigate(['/buyProduct']);
+    }
+  }
   ngOnInit(): void {
     this.categoryService.getAllCategories().subscribe((categories) => {
       this.categories = categories;

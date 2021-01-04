@@ -20,12 +20,12 @@ export class AccountService {
   getUsersByRole(): Observable<UserDto[]> {
     return this.http.get<UserDto[]>(environment.SERVER_URL + '/account/role');
   }
-  Save(employee: any): Observable<UserDto> {
-    return this.http.post<UserDto>(environment.SERVER_URL + '/account/save', employee);
+  Save(user: any): Observable<UserDto> {
+    return this.http.post<UserDto>(environment.SERVER_URL + '/account/save', user);
   }
-  // SaveCustomer(customer: any): Observable<UserDto> {
-  //   return this.http.post<UserDto>(environment.SERVER_URL + '/account/save', customer);
-  // }
+  changePass(pass: any):Observable<UserDto>{
+    return this.http.post<UserDto>(environment.SERVER_URL + '/account/changePass', pass)
+  }
   remove(id: any): Observable<any> {
     return this.http.delete<any>(environment.SERVER_URL + '/account/accounts/' + id);
   }

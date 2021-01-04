@@ -1,3 +1,4 @@
+import { ReviewDto } from './../models/review-dto';
 import { environment } from './../../environments/environment';
 import { ProductDto } from 'src/app/models/product-dto';
 import { HttpClient } from '@angular/common/http';
@@ -42,5 +43,12 @@ export class ProductService {
   }
   searchProduct(searchString: string): Observable<ProductDto[]>{
     return this.http.get<ProductDto[]>(environment.SERVER_URL + '/product/search/' + searchString);
+  }
+  comment(accountId: any, productId: any,content: any): Observable<ReviewDto[]>{
+    return this.http.post<ReviewDto[]>(environment.SERVER_URL + '/product/comment', {
+      accountId: accountId,
+      productId: productId,
+      content: content,
+  })
   }
 }

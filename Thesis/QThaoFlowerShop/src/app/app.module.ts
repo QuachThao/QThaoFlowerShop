@@ -19,13 +19,15 @@ import { MatSelectModule } from '@angular/material/select';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
-import { AddProductComponent } from './modules/add-product/add-product.component';
-import { UpdateProductComponent } from './modules/update-product/update-product.component';
-import { DetailCustomerComponent } from './modules/detail-customer/detail-customer.component';
-import { OrderCustomerComponent } from './modules/order-customer/order-customer.component';
-import { DialogPaymentMethodComponent } from './modules/dialog-payment-method/dialog-payment-method.component';
-import { DialogPayOffComponent } from './modules/dialog-pay-off/dialog-pay-off.component';
-
+import { DialogFailAllComponent } from './modules/dialog-fail-all/dialog-fail-all.component';
+import { StripeComponent } from './modules/stripe/stripe.component';
+import { StripeModule } from "stripe-angular";
+import { BillComponent } from './modules/bill/bill.component';
+import { CartitemComponent } from './modules/cartitem/cartitem.component';
+import { ChangePassComponent } from './modules/change-pass/change-pass.component';
+import { DetailBillComponent } from './modules/detail-bill/detail-bill.component';
+import { UpdateCateComponent } from './modules/update-cate/update-cate.component';
+import { AddCateComponent } from './modules/add-cate/add-cate.component';
 
 
 
@@ -56,7 +58,8 @@ import { DialogPayOffComponent } from './modules/dialog-pay-off/dialog-pay-off.c
     MatToolbarModule,
     MatSlideToggleModule,
     HttpClientModule,
-    SlickCarouselModule
+    SlickCarouselModule,
+    //StripeModule.forRoot("pk_test_51I0332K2e4L4TbBftvda7Lc54R5QhPQXPVrMWWkYQmBADwbIMUSTynYRWY51oyXGyf4GcS9s1HGQznbDfVo48bP100MdR94Zri")
   ],
   providers: [],
   bootstrap: [AppComponent]

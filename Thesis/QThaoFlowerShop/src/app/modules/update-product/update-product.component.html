@@ -7,7 +7,7 @@
                 <div class="group">
                     <label for="name" class="label">Tên sản phẩm: </label>
                     <input id="name" type="text" class="input" matInput formControlName="name"
-                        placeholder="Nhập tên sản phẩm" >
+                        placeholder="Nhập tên sản phẩm"  name="namePro" [required]="true">
                     <!-- <div *ngIf="userName.invalid && (userName.dirty || userName.touched)" class="alert alert-danger">
                         <div *ngIf="userName.errors.required">
                             Name is required.
@@ -20,16 +20,16 @@
                     <div class="group">
                         <label for="price" class="label">Giá: </label>
                         <input id="price" type="text" class="input" matInput formControlName="price"
-                            placeholder="Nhập giá sản phẩm">
+                            placeholder="Nhập giá sản phẩm" name="price" [required]="true">
                     </div>
                     <div class="group">
                         <label for="describe" class="label">Mô tả: </label>
-                        <input id="describe" type="text" class="input"  matInput
-                            formControlName="describe" placeholder="Nhập mô tả cho sản phẩm">
+                        <input id="describe" type="text" class="input"  matInput [required]="true"
+                            formControlName="describe" placeholder="Nhập mô tả cho sản phẩm" name="describe">
                     </div>
                     <div class="group">
                         <label for="review" class="label">Đánh giá: </label>
-                        <select matNativeControl required class="text" formControlName="review">
+                        <select matNativeControl required class="text" formControlName="review" name="review" [required]="true">
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -39,20 +39,21 @@
                     </div>
                     <div class="group">
                         <label for="url" class="label">Ảnh: </label>
-                        <input id="url" type="text" class="input" matInput placeholder="Chọn ảnh cho sản phẩm"
-                            formControlName="url">
+                        <input id="url" type="file" class="input" placeholder="Chọn ảnh cho sản phẩm" [required]="true"
+                            formControlName="url" name="image">
                     </div>
-                    <!-- <div class="group">
-                        <label for="component" class="label">Thành phần sản phẩm: </label>
-                        <input id="component" type="text" class="input" matInput formControlName="component"
-                            placeholder="Nhập thành phần của sản phẩm">
-                    </div> -->
+                    <div class="group">
+                        <label for="component" class="label">Loại sản phẩm: </label>
+                        <select matNativeControl required class="text" formControlName="categoryid" name="idCate" [required]="true">
+                            <option value="{{cate.id}}" *ngFor="let cate of category">{{ cate?.displayName }}</option>
+                        </select>
+                    </div>
             </form>
         </div>
     </div>
     <div mat-dialog-actions class="btn">
         <div class="left" (click)="onClose()">Hủy</div>
-        <div class="right" (click)="onSubmit()">Cập nhật</div>
+        <div class="right" (click)="onSubmit()" (click)="onClose()" >Cập nhật</div>
     </div>
 </div>
 </div>

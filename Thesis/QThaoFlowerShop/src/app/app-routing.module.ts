@@ -1,3 +1,5 @@
+import { CartitemComponent } from './modules/cartitem/cartitem.component';
+import { CustomerComponent } from './modules/customer/customer.component';
 import { DialogPayOffComponent } from './modules/dialog-pay-off/dialog-pay-off.component';
 import { PrePaymentComponent } from './modules/pre-payment/pre-payment.component';
 import { CreateEmployeeComponent } from './modules/create-employee/create-employee.component';
@@ -16,14 +18,12 @@ import { RegisterComponent } from './modules/register/register.component';
 import { BuyProductComponent } from './modules/buy-product/buy-product.component';
 import { ManagementComponent } from './modules/management/management.component';
 import { ProductManagementComponent } from './modules/product-management/product-management.component';
-import { DiscountManagementComponent } from './modules/discount-management/discount-management.component';
 import { StatisticsComponent } from 'src/app/modules/statistics/statistics.component';
-import { EmployeeComponent } from 'src/app/modules/employee/employee.component';
 import { EmployeeLayoutComponent } from 'src/app/layouts/employee-layout/employee-layout.component';
-import { CartManagementComponent } from 'src/app/modules/cart-management/cart-management.component';
+import {CateManagementComponent } from 'src/app/modules/cate-management/cate-management.component';
 import { CustomerManagementComponent } from 'src/app/modules/customer-management/customer-management.component';
-import { CustomerClassManagementComponent } from 'src/app/modules/customer-class-management/customer-class-management.component';
 import { PaymentComponent } from './modules/payment/payment.component';
+import { BillComponent } from './modules/bill/bill.component';
 
 
 
@@ -88,10 +88,6 @@ const routes: Routes = [
         component: ProductManagementComponent
       },
       {
-        path: 'discountManagement',
-        component: DiscountManagementComponent
-      },
-      {
         path: 'statistics',
         component: StatisticsComponent
       },
@@ -100,36 +96,36 @@ const routes: Routes = [
         component: CreateEmployeeComponent
       },
       {
-        path: 'cartManagement',
-        component: CartManagementComponent
+        path: 'cateManagement',
+        component: CateManagementComponent
       },
       {
         path: 'customerManagement',
         component: CustomerManagementComponent
+      },
+      {
+        path: 'bill',
+        component: BillComponent
       }
     ]
-  }
-  // {
-  //   path: '',
-  //   component: EmployeeLayoutComponent,
-  //     children: [{
-  //       path: 'employee',
-  //       component: EmployeeComponent
-  //     },
-  //     {
-  //       path: 'cartManagement',
-  //       component: CartManagementComponent
-  //     },
-  //     {
-  //       path: 'customerManagement',
-  //       component: CustomerManagementComponent
-  //     },
+  },
+  {
+    path: '',
+    component: EmployeeLayoutComponent,
+      children: [{
+        path: 'customer',
+        component: CustomerComponent
+      },
+      {
+        path: 'cartitem',
+        component: CartitemComponent
+      }
   //     {
   //       path: 'customerClassManagement',
   //       component: CustomerClassManagementComponent
   //     }
-  //   ]
-  // }
+    ]
+  }
 ];
 
 @NgModule({

@@ -30,8 +30,7 @@ export class ManagementComponent implements AfterViewInit, OnInit{
 
   accounts: UserDto[] = [];
   myControl = new FormControl();
-  options: string[] = ['One', 'Two', 'Three'];
-  filteredOptions: Observable<string[]>;
+ currentUser: UserDto;
  
   popoverTitle = 'XOÁ NHÂN VIÊN';
   popoverMessage = 'Bạn chắc là bạn muốn <b>xóa</b>?';
@@ -50,21 +49,14 @@ export class ManagementComponent implements AfterViewInit, OnInit{
     sessionStorage.removeItem('user');
     this.router.navigateByUrl('/');
   }
-  private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
-
-    return this.options.filter(option => option.toLowerCase().includes(filterValue));
-  }
+  
   ngOnInit(): void {
     this.accountService.getUsersByRole().subscribe(accounts => {
       this.dataSource = accounts;
-      console.log(accounts);
+      //console.log(accounts);
     });
-    this.filteredOptions = this.myControl.valueChanges
-      .pipe(
-        startWith(''),
-        map(value => this._filter(value))
-      );
+    this.currentUser = this.accountService.getUser();
+    console.log(this.currentUser)
   }
   onCreate(): void{
         const dialogRef = this.dialog.open(CreateEmployeeComponent, {

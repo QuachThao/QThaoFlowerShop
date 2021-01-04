@@ -8,7 +8,71 @@
     </div>
     <h5>Bạn có muốn in hóa đơn?</h5>
     <div class="btn">
-        <div class="left" (click)="openPDF()">In hóa đơn</div>
+        <div class="left" (click)="openPDF()" (click)="onCreate()" (click)="onDismiss()">In hóa đơn</div>
        <div class="right"  (click)="onDismiss()">Cancel</div>
     </div>
 </div>
+<!-- <table class="bill" id="content" #content>
+    <tr>
+        <td>THÔNG TIN ĐƠN HÀNG</td>
+        <td><a routerLink="/prePayment">Chỉnh sửa</a></td>
+    </tr>
+    <tr>
+        <td>Số lượng: </td>
+        <td>{{state?.quantity}}</td>
+    </tr>
+    <tr>
+        <td>
+            <span>Lời nhắn: </span>
+            <span>{{state?.note}}</span>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <span>Hướng dẫn: </span>
+            <span>{{state?.guide}}</span>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <span>Ngày giao hàng:</span>
+            <span>{{state?.date | date:'short'}}</span>
+        </td>
+
+    </tr>
+    <tr>
+        <td>
+            <span>Giờ giao hàng:</span>
+            <span>{{state?.time}}</span>
+
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <span>Người gửi:</span>
+            <span></span>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <span>Số điện thoại:</span>
+            <span></span>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <span>Người nhận:</span>
+            <span></span>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <span>Số điện thoại:</span>
+            <span></span>
+        </td>
+    </tr>
+    <tr>
+        <td>Tổng cộng: </td>
+        <td>{{state?.totalPrice}}</td>
+    </tr>
+</table> -->

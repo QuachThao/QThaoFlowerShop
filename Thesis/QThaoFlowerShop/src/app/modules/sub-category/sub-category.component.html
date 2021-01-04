@@ -1,10 +1,10 @@
 <div class="title">
-  <!-- <img src="" alt="bo anh theo product " /> -->
+  <h3>Hoa....</h3>
 </div>
 <div>
   <div>
     <mat-grid-list cols="4" class="grid-list">
-      <mat-grid-tile *ngFor="let product of birthday">
+      <mat-grid-tile *ngFor="let product of products">
           <div class="cols1">
               <div class="cols1-inner">
                   <a routerLink="/detailProduct/{{ product.id }}">
@@ -28,13 +28,13 @@
     </ng-container> -->
   </div>
 
-  <mat-paginator
+  <!-- <mat-paginator
     class="paginator"
     [length]="products.length"
     [pageSize]="size"
     [pageIndex]="page"
     (page)="getData($event)"
   >
-  </mat-paginator>
+  </mat-paginator> -->
 </div>
 

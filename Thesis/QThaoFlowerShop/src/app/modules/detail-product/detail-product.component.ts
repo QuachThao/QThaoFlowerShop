@@ -1,3 +1,5 @@
+import { ReviewService } from './../../services/review.service';
+import { CategoryService } from './../../services/category.service';
 import { CartItemService } from './../../services/cart-item.service';
 import { DialogLoginSuccessComponent } from './../dialog-login-success/dialog-login-success.component';
 import { ProductDto } from './../../models/product-dto';
@@ -36,26 +38,22 @@ export class DetailProductComponent implements OnInit {
   result: string;
   product: ProductDto;
   productId: string;
+  comment: string;
+  bestSellerProducts: ProductDto[] = [];
+  otherGifts: ProductDto[] = [];
+  commentsForm: FormGroup;
+
   constructor(
     private fb: FormBuilder,
     public dialog: MatDialog,
     private accountService: AccountService,
     private productService: ProductService,
     private cartitem: CartItemService,
+    private cate: CategoryService,
+    private review: ReviewService,
     private route: ActivatedRoute,
     private router: Router
   ) {
-    this.formGroup = this.fb.group({
-      emailField: ['', [Validators.required, Validators.email]],
-      feedback: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(25),
-          Validators.maxLength(300),
-        ],
-      ],
-    });
   }
   confirmDialog(): void {
     const message = ``;
@@ -76,10 +74,24 @@ export class DetailProductComponent implements OnInit {
         product.url = product.url.substring(1);
         this.product = product;
         console.log(this.product)
-      })
+        this.productService.getProductsByCategory(this.product.categoryId).subscribe(products => {
+          console.log(this.product.categoryId)
+          this.bestSellerProducts = products;
+          // this.data = products;
+        });
+      });
     })
+    
+    this.productService.getProductsByCategory('c21161f8-dbf0-4649-ab2b-a5c0bf6c3f15').subscribe(products => {
+      this.otherGifts = products;
+      // this.data = products;
+    });
   }
-
+  commentForm() {
+    this.commentsForm = this.fb.group({
+      content: ['', []],
+    });
+  }
   addToCart(): void {
     if (this.accountService.isLogin()) {
       const userId = this.accountService.getUser().id;
@@ -95,13 +107,15 @@ export class DetailProductComponent implements OnInit {
     this.router.navigate(['/login']);
     }
     else {
-      this.addToCart();
     const message = ``;
     const dialogData = new ConfirmDialogModel('Đã thêm vào giỏ hàng!', message);
     const dialogRef = this.dialog.open(DialogAddSuccessfulComponent, {
       maxWidth: '500px',
       data: dialogData
     });
+    setTimeout(function() {
+      dialogRef.close();
+    }, 2000);
   }
     // if (!this.accountService.isLogin()){
     //   console.log('anbhe'); 
@@ -109,5 +123,21 @@ export class DetailProductComponent implements OnInit {
       //   width: '400px',
       // });
       // this.router.navigate(['/', 'management']);
+    }
+    Comment(): void{
+      if (!this.accountService.isLogin()){
+        this.router.navigate(['/login']);
+        }
+        else{
+          const productId = this.route.params.subscribe(params => {
+            this.productId = params.id;
+            console.log("comment", this.productId)
+          })
+          const accountId = this.accountService.getUser().id;
+          const content = this.commentsForm.value;
+          console.log("data form",content)
+          // this.review.saveComment(content).subscribe();
+          // location.reload();
+        }
     }
 }

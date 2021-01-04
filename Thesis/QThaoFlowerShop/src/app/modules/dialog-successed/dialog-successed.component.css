@@ -1,0 +1,11 @@
+.container{
+    text-align: center;
+    padding: 24px;
+    background: #c0fab9;
+}
+
+mat-icon{
+    font-size: 70px;
+    color: #34f234;
+    margin: 0 auto;
+}

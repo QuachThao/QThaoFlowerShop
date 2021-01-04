@@ -54,3 +54,7 @@ h4 {
   background: #ee6f57;
   color: black;
 }
+.input{
+  line-height: 60px;
+  font-size: 20px;
+}

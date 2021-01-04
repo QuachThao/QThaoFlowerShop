@@ -1,0 +1,46 @@
+body{
+  font-family: "Courgette", cursive;
+  font-family: "Josefin Sans", sans-serif;
+  font-family: "Mukta", sans-serif;
+  font-family: "Signika", sans-serif;
+}
+.header h4 {
+  text-align: center;
+  text-transform: uppercase;
+}
+.table table {
+  font-size: 18px;
+  padding: 10px;
+  line-height: 30px;
+  margin-left: 330px;
+  border: 1px solid #14274e;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.table h5 {
+  padding: 0;
+  margin: 0;
+  margin-left: 190px;
+}
+.profile-img {
+  width: 70px;
+  border-radius: 100px;
+  margin-top: 10px;
+  margin-left: 180px;
+}
+.table button {
+  border: none;
+  background: none;
+  font-size: 15px;
+  font-family: "Courgette", cursive;
+  font-family: "Josefin Sans", sans-serif;
+  font-family: "Mukta", sans-serif;
+  font-family: "Signika", sans-serif;
+}
+.table button:hover{
+    color: #ee6f57;
+}
+.table .label{
+  width: 10px;
+}

@@ -1,3 +1,7 @@
+import { DetailBillComponent } from './../../modules/detail-bill/detail-bill.component';
+import { ChangePassComponent } from './../../modules/change-pass/change-pass.component';
+import { PaymentComponent } from './../../modules/payment/payment.component';
+import { StripeComponent } from './../../modules/stripe/stripe.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { PrePaymentComponent } from './../../modules/pre-payment/pre-payment.component';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
@@ -29,6 +33,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { StripeModule } from "stripe-angular";
+import { HttpClientModule } from '@angular/common/http';
+
 
 import { LoginComponent } from 'src/app/modules/login/login.component';
 import { RegisterComponent } from 'src/app/modules/register/register.component';
@@ -40,6 +47,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { DialogPaymentMethodComponent } from 'src/app/modules/dialog-payment-method/dialog-payment-method.component';
 import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
 import { DialogPayOffComponent } from 'src/app/modules/dialog-pay-off/dialog-pay-off.component';
+import { DialogSuccessedComponent } from 'src/app/modules/dialog-successed/dialog-successed.component';
+import { DialogFailAllComponent } from 'src/app/modules/dialog-fail-all/dialog-fail-all.component';
 
 
 @NgModule({
@@ -50,11 +59,17 @@ import { DialogPayOffComponent } from 'src/app/modules/dialog-pay-off/dialog-pay
     DetailProductComponent,
     BuyProductComponent,
     PrePaymentComponent,
+    PaymentComponent,
     DialogAddSuccessfulComponent,
     DialogFailedComponent,
     DialogLoginSuccessComponent,
     DialogPaymentMethodComponent,
-    DialogPayOffComponent
+    DialogPayOffComponent,
+    DialogSuccessedComponent,
+    DialogFailAllComponent,
+    StripeComponent,
+    ChangePassComponent,
+    DetailBillComponent
   ],
   imports: [
     CommonModule,
@@ -86,16 +101,18 @@ import { DialogPayOffComponent } from 'src/app/modules/dialog-pay-off/dialog-pay
     MatCheckboxModule,
     ReactiveFormsModule,
     MatExpansionModule,
+    HttpClientModule,
     ConfirmationPopoverModule.forRoot({
       confirmButtonType: 'danger', // set defaults here
-    })
+    }),
+    StripeModule.forRoot("pk_test_51I0332K2e4L4TbBftvda7Lc54R5QhPQXPVrMWWkYQmBADwbIMUSTynYRWY51oyXGyf4GcS9s1HGQznbDfVo48bP100MdR94Zri")
   ],
   providers: [ MatDatepickerModule,
     {
       provide: STEPPER_GLOBAL_OPTIONS,
       useValue: { displayDefaultIndicatorType: false }
     },
-    MatDatepickerModule
+    MatDatepickerModule,
   ],
   exports: [SlickCarouselModule, MatPaginatorModule]
 })

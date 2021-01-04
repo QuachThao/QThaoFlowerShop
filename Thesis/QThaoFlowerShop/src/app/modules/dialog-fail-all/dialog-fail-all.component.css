@@ -1,0 +1,9 @@
+.container{
+    padding: 24px;
+    background: #ffba93;
+}
+mat-icon{
+    font-size: 70px;
+    color: #f33914;
+    margin-left: 90px;
+}

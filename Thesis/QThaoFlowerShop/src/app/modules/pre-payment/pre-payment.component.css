@@ -1,9 +1,51 @@
-.container {
-  display: grid;
-  padding: 20px 30px;
-  grid-template-columns: 1fr 1fr;
+.content{
+  margin: 20px 0 30px 330px;
+  width: 50%;
+  font-family: "Josefin Sans", sans-serif;
+  font-family: "Mukta", sans-serif;
+  font-family: "Signika", sans-serif;
+  border: 1px solid #14274e;
+  box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
 }
-mat-icon{
+.title{
+  background: #14274e;
+  color: #fff;
+  text-transform: uppercase;
+  font-family: "Courgette", cursive;
+  font-family: "Josefin Sans", sans-serif;
+  font-family: "Mukta", sans-serif;
+  font-family: "Signika", sans-serif;
+}
+form{
+  margin:0 30px 0 20px;
+}
+input, select, textarea{
+  border-bottom: 0.5px solid #2e3950;
+  color: #234ea3;
+}
+.group{
+  padding: 5px 5px;
+}
+
+.infor-bill table{
+  margin-left: 20px;
+}
+.action-btn button {
+  margin-top: 20px;
+  border: 0.5px solid #f3beb6;
+  border-radius: 10px;
+  cursor: pointer;
+  background: #fff;
+  transition: 0.4s;
+}
+.action-btn button:hover {
+  background: #ee6f57;
+}
+.return-btn{
+  margin-left: 20px;
+  margin-right: 430px;
+}
+/*mat-icon{
 font-size: 30px;
 }
 .left{
@@ -110,4 +152,4 @@ padding: 5px 30px;
   color: #ee6f57;
   font-size: 18px;
   font-weight: 500;
-}
+} */

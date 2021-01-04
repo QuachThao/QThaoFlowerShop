@@ -1,1 +1,111 @@
-<p>payment works!</p>
+<div class="container">
+    <div class="content">
+        <div class="title">
+            Đơn hàng <mat-icon>receipt</mat-icon>
+        </div>
+        <table class="bill">
+            <tr>
+                <td>THÔNG TIN ĐƠN HÀNG
+                    <span><a routerLink="/prePayment">Chỉnh sửa</a></span>
+                </td>
+            </tr>
+            <!-- <tr>
+                <td>
+                    <span class="label">Sản phẩm:</span>
+                    <span class="bill-content">{{state?.products.product.url}}</span>
+
+                </td>
+            </tr> -->
+            <tr>
+                <td>
+                    <span class="label">Số lượng:</span>
+                    <span class="bill-content">{{state?.quantity}}</span>
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="label">Lời nhắn: </span>
+                    <span class="bill-content">{{state?.note}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="label">Hướng dẫn: </span>
+                    <span class="bill-content">{{state?.guide}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="label">Ngày giao hàng:</span>
+                    <span class="bill-content">{{state?.date | date:'short'}}</span>
+                </td>
+
+            </tr>
+            <tr>
+                <td>
+                    <span class="label">Giờ giao hàng:</span>
+                    <span class="bill-content">{{state?.time}}</span>
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="label">Người gửi:</span>
+                    <span class="bill-content">{{state?.fullNameSender}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="label">Số điện thoại:</span>
+                    <span class="bill-content">{{state?.phoneSender}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="label">Email:</span>
+                    <span class="bill-content">{{state?.emailSender}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="label">Người nhận:</span>
+                    <span class="bill-content">{{state?.fullNameReceiver}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="label">Số điện thoại:</span>
+                    <span class="bill-content">{{state?.phoneReceiver}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="label">Địa chỉ:</span>
+                    <span class="bill-content">{{state?.adReceiver}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="label">Tổng cộng: </span>
+                    <span class="bill-content">{{state?.totalPrice}}</span>
+                </td>
+            </tr>
+        </table>
+        <div class="pay-method">
+            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" class="panel">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <mat-icon>payment</mat-icon>Thanh toán
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div (click)="onCreateOnline()" class="method">
+                    <span>Thanh toán trực tuyến</span>
+                </div>
+                <div (click)="onCreateOffline()" class="method">
+                    <span (click)="addToBill()">Thanh toán khi nhận hàng</span>
+                </div>
+            </mat-expansion-panel>
+        </div>
+    </div>
+</div>

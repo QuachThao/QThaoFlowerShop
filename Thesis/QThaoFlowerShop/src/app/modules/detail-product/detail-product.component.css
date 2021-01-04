@@ -1,21 +1,25 @@
-
 .content {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
-.title{
-  font-size: 18px;
-  font-weight: 400;
+.title {
+  font-family: "Courgette", cursive;
+  font-family: "Josefin Sans", sans-serif;
+  font-family: "Mukta", sans-serif;
+  font-family: "Signika", sans-serif;
   margin-right: 10px;
+  font-size: 18px;
 }
 .right {
   margin: 0;
   margin: 20px;
   font-weight: 400;
   padding: 40px 40px;
-  background-color: #bdced8;
+  background-color: #f1f6f9;
 }
-
+.left{
+  margin-top: 20px;
+}
 .left img {
   margin-left: 20px;
   margin-right: 10px;
@@ -28,67 +32,153 @@
   padding: 5px 5px;
 }
 .right table td {
-  padding: 5px;
+  padding: 10px;
+}
+.right .note{
+  color: #ee6f57;
+  font-family: "Josefin Sans", sans-serif;
+  font-family: "Mukta", sans-serif;
+  font-family: "Signika", sans-serif;
 }
 .right .hr {
   margin: 0;
   padding: 0;
   height: 1px;
   width: 90%;
-  background-color: #9ba4b4;
+  background-color: #c1e1f3;
 }
 .right table td button {
-  font-size: 18px;
-  font-weight: 600;
+  font-size: 16px;
   border-radius: 10px;
 }
-.quantity{
- margin-left: 10px;
- font-size: 16px;
- width: 90px;
+.quantity {
+  margin-left: 10px;
+  font-size: 16px;
+  width: 90px;
 }
-.btn-add-product{
+.infor {
+  font-family: "Josefin Sans", sans-serif;
+  font-family: "Mukta", sans-serif;
+  font-family: "Signika", sans-serif;
+}
+.btn{
+  padding-right: 40px;
+}
+.btn button{
+  font-size: 18px;
   padding: 5px 5px;
-    color: black;
-    border: 1px solid #f3beb6;
-    font-size: 16px;
-    font-weight: 600;
-    outline: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: all 300ms ease-in-out;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.4s;
+  border: 1px solid #f3beb6;
+  background: none;
+  font-family: "Courgette", cursive;
+  font-family: "Josefin Sans", sans-serif;
+  font-family: "Mukta", sans-serif;
+  font-family: "Signika", sans-serif;
 }
-.btn-add-product:hover{
+.btn button:hover{
   background-color:  #ee6f57;
 }
-.btn-add-product a{
-  text-decoration: none;
-  color: black;
+.others .title {
+  margin: 0;
+  font-size: 1.8rem;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  padding-top: 10px;
+  font-weight: 500;
 }
-.feedback input textarea{
-  border: 1px solid black;
-  padding: 20px 20px;
+.others {
+  margin: 60px;
+  padding: 40px;
+  background: #f1f6f9;
 }
-.feedback .btn-submit{
-  border-color:  #ee6f57;
-  color: black;
-  font-size: 20px;
+.grid-list {
+  padding: 0;
 }
-.feedback .btn-submit:hover{
+.cols1 {
+  padding: 0;
+  height: 90%;
+  background-color: white;
+  transition: transform 0.2s;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.cols1-inner img {
+  object-fit: cover;
+  width: 200px;
+  height: 180px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+.cols1-inner img:hover {
+  -ms-transform: scale(1.5);
+  -webkit-transform: scale(1.5);
+  transform: scale(1.1);
+}
+.hr-inner {
+  width: 200px;
+  height: 1px;
+  background-color: #9ba4b4;
+}
+.detail-content {
+  padding-left: 10px;
+}
+.detail-content p {
+  margin: 0;
+  margin-top: 10px;
+  font-family: "Courgette", cursive;
+  font-family: "Josefin Sans", sans-serif;
+  font-family: "Mukta", sans-serif;
+  font-family: "Signika", sans-serif;
+  /* font-size: 16px;
+   font-weight: 400; */
+}
+.others .hr {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 20px;
+  height: 1.5px;
+  width: 100%;
+  background-color: #ee6f57;
+}
+.infor input{
+  border:none;
+  width: 260px;
+  padding: 10px;
+  background: none;
+  border-bottom: 1px solid #9ba4b4;
+}
+.comment button{
+  font-size: 15px;
+  margin-left: 10px;
+  padding: 5px 5px;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.4s;
+  border: 1px solid #f3beb6;
+  background: none;
+  font-family: "Courgette", cursive;
+  font-family: "Josefin Sans", sans-serif;
+  font-family: "Mukta", sans-serif;
+  font-family: "Signika", sans-serif;
+}
+.comment button:hover{
   background-color:  #ee6f57;
 }
-
-
-
-.product-item .product-item-content {
-      border: 1px solid var(--surface-d);
-      border-radius: 3px;
-      margin: .3rem;
-      text-align: center;
-      padding: 2rem 0;
-  }
-
-.product-item .product-image {
-      width: 50%;
-      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  }
+.comment input{
+  font-family: "Courgette", cursive;
+  font-family: "Josefin Sans", sans-serif;
+  font-family: "Mukta", sans-serif;
+  font-family: "Signika", sans-serif;
+}
+.infor form{
+  margin-bottom: 10px;
+}
+.continue{
+line-height: 25px;
+}

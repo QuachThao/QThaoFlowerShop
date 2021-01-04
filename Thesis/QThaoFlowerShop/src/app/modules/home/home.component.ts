@@ -79,8 +79,14 @@ export class HomeComponent implements OnInit {
  
  search(){
    this.productService.searchProduct(this.searchText).subscribe((product: any) =>{
+    console.log(product) 
+    if (!product?.length){
+       alert('Không tìm thấy sản phẩm!')
+     }
+     else{
      this.resultSearch = product;
-   });
+      }
+    });
    console.log(this.searchText)
  }
   selectEvent(item) {

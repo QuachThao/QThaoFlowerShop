@@ -1,3 +1,4 @@
+import { ConfirmDialogModel } from './../update-employee/update-employee.component';
 import { CategoryDto } from './../../models/category-dto';
 import { CategoryService } from './../../services/category.service';
 import { UpdateProductComponent } from './../update-product/update-product.component';
@@ -11,6 +12,8 @@ import { CreateEmployeeComponent } from '../create-employee/create-employee.comp
 import { UpdateEmployeeComponent } from '../update-employee/update-employee.component';
 import { AddProductComponent } from '../add-product/add-product.component';
 import { FormControl } from '@angular/forms';
+import { VoiceRecognitionService } from 'src/app/services/voice-recognition.service';
+import { DialogSuccessedComponent } from '../dialog-successed/dialog-successed.component';
 
 @Component({
   selector: 'app-product-management',
@@ -22,7 +25,7 @@ export class ProductManagementComponent implements OnInit {
   dataSource: any = new MatTableDataSource<ProductElement>(null);
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  popoverTitle = 'XOÁ NHÂN VIÊN';
+  popoverTitle = 'XOÁ SẢN PHẨM';
   popoverMessage = 'Bạn chắc là bạn muốn <b>xóa</b>?';
   confirmClicked = false;
   cancelClicked = false;
@@ -30,12 +33,15 @@ export class ProductManagementComponent implements OnInit {
   products: ProductDto[]= [];
   panelOpenState = false;
   categories: CategoryDto[] = [];
+  resultSearch: ProductDto[] = [];
+  searchText;
 
   myControl = new FormControl();
   constructor(
     private productService: ProductService,
     private dialog: MatDialog,
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
+    public voiceRecognitionService: VoiceRecognitionService
   ) { }
   ngAfterViewInit(): void {
     this.dataSource.paginator = this.paginator;
@@ -55,7 +61,37 @@ onEdit(data: ProductDto): void{
 onDelete(id: any): void {
   console.log('DELETE', id);
   this.productService.remove(id).subscribe();
+  const message = `Đã xóa sản phẩm!`;
+        const dialogData = new ConfirmDialogModel(
+          '',
+          message
+        );
+        const dialogRef = this.dialog.open(DialogSuccessedComponent, {
+          maxWidth: '400px',
+          data: dialogData,
+        });
+    setTimeout(function() {
+      dialogRef.close();
+    }, 3000);
   location.reload();
+}
+search(){
+  this.productService.searchProduct(this.searchText).subscribe((product: any) =>{
+    this.resultSearch = product;
+  });
+  console.log(this.searchText)
+}
+searchVoice(): void {
+  this.voiceRecognitionService.init();
+  this.voiceRecognitionService.start();
+  this.voiceRecognitionService.text$.subscribe(text => {
+    this.searchText  = text;
+  })
+}
+
+cancelSearch(): void {
+  this.voiceRecognitionService.stop();
+  this.resultSearch = [];
 }
   ngOnInit(): void {
     this.productService.getAllProducts().subscribe(products => {

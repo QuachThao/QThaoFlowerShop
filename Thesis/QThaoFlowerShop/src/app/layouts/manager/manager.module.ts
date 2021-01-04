@@ -1,5 +1,5 @@
+import { UpdateCateComponent } from './../../modules/update-cate/update-cate.component';
 import { DialogPaymentMethodComponent } from './../../modules/dialog-payment-method/dialog-payment-method.component';
-import { OrderCustomerComponent } from './../../modules/order-customer/order-customer.component';
 import { DetailCustomerComponent } from './../../modules/detail-customer/detail-customer.component';
 import { UpdateProductComponent } from './../../modules/update-product/update-product.component';
 import { UpdateEmployeeComponent } from './../../modules/update-employee/update-employee.component';
@@ -11,7 +11,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { CreateEmployeeComponent } from './../../modules/create-employee/create-employee.component';
 import { StatisticsComponent } from './../../modules/statistics/statistics.component';
-import { DiscountManagementComponent } from './../../modules/discount-management/discount-management.component';
 import { ProductManagementComponent } from './../../modules/product-management/product-management.component';
 import { MatInputModule } from '@angular/material/input';
 import { NgModule } from '@angular/core';
@@ -33,10 +32,12 @@ import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { AddProductComponent } from 'src/app/modules/add-product/add-product.component';
-import { CartManagementComponent } from 'src/app/modules/cart-management/cart-management.component';
+import { CateManagementComponent } from 'src/app/modules/cate-management/cate-management.component';
 import { CustomerManagementComponent } from 'src/app/modules/customer-management/customer-management.component';
 import { Ng2SearchPipe, Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ChartsModule } from 'ng2-charts';
+import { BillComponent } from 'src/app/modules/bill/bill.component';
+import { AddCateComponent } from 'src/app/modules/add-cate/add-cate.component';
 
 
 
@@ -45,16 +46,18 @@ import { ChartsModule } from 'ng2-charts';
         ManagerComponent,
         ManagementComponent,
         ProductManagementComponent,
-        DiscountManagementComponent,
         StatisticsComponent,
         CreateEmployeeComponent,
         UpdateEmployeeComponent,
         AddProductComponent,
         UpdateProductComponent,
-        CartManagementComponent,
+        CateManagementComponent,
         CustomerManagementComponent,
         DetailCustomerComponent,
-        OrderCustomerComponent
+        BillComponent,
+        CateManagementComponent,
+        AddCateComponent,
+        UpdateCateComponent
     ],
     imports: [
         CommonModule,
@@ -62,7 +65,6 @@ import { ChartsModule } from 'ng2-charts';
         MatIconModule,
         FlexLayoutModule,
         MatTableModule,
-        // MatPaginator,
         MatPaginatorModule,
         MatAutocompleteModule,
         MatFormFieldModule,

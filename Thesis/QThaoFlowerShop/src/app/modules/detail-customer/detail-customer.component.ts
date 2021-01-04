@@ -92,6 +92,20 @@ export class DetailCustomerComponent implements OnInit {
     this.productService.remove(id).subscribe();
     location.reload();
   }
+  // comment(): void {
+  //   const accountId = this.accountService.getUser().id;
+  //   productId
+  //   content
+  //   this.productService
+  //     .comment(
+  //       accountId,
+  //       productId,
+  //       content
+  //     )
+  //     .subscribe(() => {
+  //       this.cartitem.clear(accountId).subscribe(location.reload);
+  //     });
+  // }
 }
 
 export class ConfirmDialogModel {
